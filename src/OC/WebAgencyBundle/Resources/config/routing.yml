@@ -1,0 +1,3 @@
+oc_web_agency_homepage:
+    path:     /
+    defaults: { _controller: OCWebAgencyBundle:Default:index }
