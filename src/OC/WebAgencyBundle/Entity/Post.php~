@@ -256,45 +256,5 @@ class Post
     {
         return $this->isPosted;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add comment
-     *
-     * @param \OC\WebAgencyBundle\Entity\Comment $comment
-     *
-     * @return Post
-     */
-    public function addComment(\OC\WebAgencyBundle\Entity\Comment $comment)
-    {
-        $this->comments[] = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Remove comment
-     *
-     * @param \OC\WebAgencyBundle\Entity\Comment $comment
-     */
-    public function removeComment(\OC\WebAgencyBundle\Entity\Comment $comment)
-    {
-        $this->comments->removeElement($comment);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
 }
+

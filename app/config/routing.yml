@@ -1,3 +1,11 @@
+oc_web_agency_comment:
+    resource: "@OCWebAgencyBundle/Controller/CommentController.php"
+    type:     annotation
+
+oc_web_agency_post:
+    resource: "@OCWebAgencyBundle/Controller/PostController.php"
+    type:     annotation
+
 oc_web_agency:
     resource: "@OCWebAgencyBundle/Resources/config/routing.yml"
     prefix:   /
