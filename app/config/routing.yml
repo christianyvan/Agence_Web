@@ -1,3 +1,4 @@
+
 oc_web_agency_comment:
     resource: "@OCWebAgencyBundle/Controller/CommentController.php"
     type:     annotation
@@ -13,3 +14,6 @@ oc_web_agency:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

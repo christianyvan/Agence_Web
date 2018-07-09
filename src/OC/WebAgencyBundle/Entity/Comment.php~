@@ -224,5 +224,28 @@ class Comment
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set posts
+     *
+     * @param \OC\WebAgencyBundle\Entity\Post $posts
+     *
+     * @return Comment
+     */
+    public function setPosts(\OC\WebAgencyBundle\Entity\Post $posts = null)
+    {
+        $this->posts = $posts;
+
+        return $this;
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \OC\WebAgencyBundle\Entity\Post
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+}

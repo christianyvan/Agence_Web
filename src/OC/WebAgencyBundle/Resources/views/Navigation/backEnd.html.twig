@@ -1,0 +1,45 @@
+<div class="page">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Leon</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav ">
+
+                    <li class="">
+                        <a href="{{ path('home_page_route') }}"><i class="glyphicon glyphicon-home"> Home</i></a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('fos_user_security_logout') }}" class=""><i class="glyphicon glyphicon-log-out"></i> Disconnection</a>
+                    </li>
+
+                    <li class="">
+                        <a href=""><i class="glyphicon glyphicon-cog"> Settings</i></a>
+                    </li>
+                    <li class="">
+                        <a href="" class="" ><i class="glyphicon glyphicon-dashboard"> Dashboard</i></a>
+                    </li>
+
+                    <li class="">
+                        <a href="{{ path('view_writepost_route') }}"><i class="glyphicon glyphicon-edit"> Edit</i></a>
+                    </li>
+
+                    <li class="">
+                        <a href=""><i class="glyphicon glyphicon-th-list"> List Posts</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- end collapse -->
+    </nav>
+</div>
+
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+
+
