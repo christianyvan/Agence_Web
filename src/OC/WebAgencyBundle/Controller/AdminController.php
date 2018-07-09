@@ -36,7 +36,7 @@ class AdminController extends Controller
 		}
 
 
-		return $this->render('@AdminUser/Dashboard/homeDashboard.html.twig', array(
+		return $this->render('OCWebAgencyBundle:Admin:admin.html.twig', array(
 			'comments' => $comments,
 			'posts'    => $posts
 		));

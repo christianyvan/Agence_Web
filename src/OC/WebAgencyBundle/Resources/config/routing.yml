@@ -1,3 +1,7 @@
 oc_web_agency_homepage:
     path:     /
     defaults: { _controller: OCWebAgencyBundle:Home:index }
+
+oc_web_agency_admin:
+    path:    /admin/
+    defaults: {_controller: OCWebAgencyBundle:Admin:admin}
