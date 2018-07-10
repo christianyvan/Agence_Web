@@ -46,7 +46,7 @@ class Comment
     /**
      * @var int
      *
-     * @ORM\Column(name="postId", type="integer")
+     * @ORM\Column(name="postId", type="integer", nullable=true)
      */
     private $postId;
 

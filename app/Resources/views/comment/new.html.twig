@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminCommentNew.css') }}">
+{% endblock %}
 
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Comment creation</h1>
 
     {{ form_start(form) }}

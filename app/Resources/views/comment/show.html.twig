@@ -1,36 +1,34 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('css/adminCommentShow.css') }}">
+     {% endblock %}
+
     <h1>Comment</h1>
 
-    <table>
-        <tbody>
+    <table class="table table-dark table-striped">
+       <thead>
             <tr>
                 <th>Id</th>
-                <td>{{ comment.id }}</td>
-            </tr>
-            <tr>
                 <th>Author</th>
-                <td>{{ comment.author }}</td>
-            </tr>
-            <tr>
                 <th>Email</th>
-                <td>{{ comment.email }}</td>
-            </tr>
-            <tr>
                 <th>Content</th>
-                <td>{{ comment.content }}</td>
-            </tr>
-            <tr>
                 <th>Postid</th>
-                <td>{{ comment.postId }}</td>
-            </tr>
-            <tr>
-                <th>Isseen</th>
-                <td>{% if comment.isSeen %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
+                <th>IsSeen</th>
                 <th>Date</th>
+            </tr>
+       </thead>
+        <tbody>
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.author }}</td>
+                <td>{{ comment.email }}</td>
+                <td>{{ comment.content }}</td>
+                <td>{{ comment.postId }}</td>
+                <td>{% if comment.isSeen %}Yes{% else %}No{% endif %}</td>
                 <td>{% if comment.date %}{{ comment.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
@@ -38,15 +36,13 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_comment_index') }}">Back to the list</a>
+            <a href="{{ path('oc_web_agency_admin') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('admin_comment_edit', { 'id': comment.id }) }}">Edit</a>
+            <a href="{{ path('admin_comment_delete', { 'id': comment.id }) }}">Delete</a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
     </ul>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 {% endblock %}

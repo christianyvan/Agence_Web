@@ -4,6 +4,7 @@ namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Post
@@ -42,6 +43,12 @@ class Post
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+
+	/**
+	 * @var string
+	 * @ORM\Column(name="category", type="string", length=255)
+	 */
+    private $category;
 
     /**
      * @var string
@@ -261,7 +268,8 @@ class Post
      */
     public function __construct()
     {
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->date = new \DateTime('NOW');
     }
 
     /**
@@ -296,5 +304,29 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Post
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

@@ -11,30 +11,33 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Author</th>
                 <th>Content</th>
-                <th>Title Post</th>
+                <th>Post title</th>
+                <th>Post category</th>
                 <th>Date</th>
-                <th>Category</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for comment in comments %}
                 <tr>
                     <td>{{ comment.id }}</td>
-                    <td>{{ comment.name }}</td>
+                    <td>{{ comment.author }}</td>
                     <td>{{ comment.content }}</td>
                     {% for post in posts %}
                         {% if post.id == comment.postId %}
                             <td>{{ post.title }}</td>
+                            <td>{{ post.category }}</td>
+
                         {% endif %}
                     {% endfor %}
                     <td>{{ comment.date|date("m/d/Y") }}</td>
 
+
                     <td>
-                        <a href="" class="btn btn-primary">View</a>
-                        <a href="" class="btn btn-success">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="{{ path('admin_comment_show',{'id': comment.id }) }}" class="btn btn-success glyphicon glyphicon-ok-circle "></a>
+                        <a href="{{ path('admin_comment_delete',{'id': comment.id }) }}" class="btn btn-danger "><span class=" glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             {% endfor %}

@@ -43,11 +43,11 @@ class Comment
      */
     private $content;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="postId", type="integer")
-     */
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="postId", type="integer")
+	 */
     private $postId;
 
     /**
@@ -65,6 +65,7 @@ class Comment
     private $date;
 
 	/**
+	 * @var
 	 * @ORM\ManyToOne(targetEntity="OC\WebAgencyBundle\Entity\Post", inversedBy="comments", cascade={"persist"})
 	 * @ORM\JoinColumn(name="postId", referencedColumnName="id")
 	 */
