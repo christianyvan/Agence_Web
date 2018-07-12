@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CommentController extends Controller
 {
+
+
+
+
 	/**
 	 * Lists all comment entities.
 	 *
@@ -111,7 +115,7 @@ class CommentController extends Controller
 	 *
 	 * @param Comment $comment The comment entity
 	 *
-	 * @return \Symfony\Component\Form\Form The form
+	 * @return \Symfony\Component\Form\FormInterface
 	 */
 	private function createDeleteForm(Comment $comment)
 	{

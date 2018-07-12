@@ -18,6 +18,20 @@ use OC\WebAgencyBundle\Entity\Comment;
  */
 class AdminController extends Controller
 {
+	/**
+	 * @param $id
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	public function updateIsSeenAction($id)
+	{
+
+		$em = $this->getDoctrine()->getManager();
+		$comment = $em->getRepository('OCWebAgencyBundle:Comment')->find($id);
+		$comment->setIsSeen(1);
+		$em->flush();
+		return $this->redirectToRoute('oc_web_agency_admin');
+	}
+
 	public function adminAction(){
 
 

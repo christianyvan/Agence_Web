@@ -10,6 +10,12 @@ oc_web_agency_admin:
     path:    /admin/
     defaults: {_controller: OCWebAgencyBundle:Admin:admin}
 
+#**************************************************route front end ****************************************
+
+oc_web_agency_blog:
+    path:    /blog
+    defaults: {_controller: OCWebAgencyBundle:Blog:blog }
+
 #******** Route fosuser pour Commment  *************************************************
 
 admin_comment_index:
@@ -68,3 +74,8 @@ admin_post_delete:
 admin_comment_dashboard_delete:
     path:    /admin/comment/delete/{id}
     defaults: { _controller: "OCWebAgencyBundle:Admin:deleteComment" }
+
+#******************** route pour mise a jour isSeen ********************************************
+admin_updateIsSeen:
+    path: /admin/comment/update/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Admin:updateIsSeen"}
