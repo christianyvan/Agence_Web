@@ -1,21 +1,81 @@
 {% extends 'base.html.twig' %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminPostEdit.css') }}">
+{% endblock %}
+
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+
     <h1>Post edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <div class="form-group">
+        {{ form_label(edit_form.title) }}
+        {{ form_widget(edit_form.title,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.title) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_post_index') }}">Back to the list</a>
-        </li>
-        <li>
+    </div>
+    <div class="form-group">
+        {{ form_label(edit_form.name) }}
+        {{ form_widget(edit_form.name,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.name) }}
+
+    </div>
+
+    <div class="form-group">
+        {{ form_label(edit_form.content) }}
+        {{ form_widget(edit_form.content,{'attr':{'class':'form-control ckeditor'}}) }}
+        {{ form_errors(edit_form.content) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(edit_form.email) }}
+        {{ form_widget(edit_form.email,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.email) }}
+
+    </div>
+
+    <div class="form-group">
+        {{ form_label(edit_form.image) }}
+        {{ form_widget(edit_form.image,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.image) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(edit_form.date) }}
+        {{ form_widget(edit_form.date,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.date) }}
+
+    </div>
+    <div class="form-group">
+        {{ form_label(edit_form.isPosted) }}
+        {{ form_widget(edit_form.isPosted,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.isPosted) }}
+
+    </div>
+    <div class="form-group">
+        {{ form_label(edit_form.category) }}
+        {{ form_widget(edit_form.category,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(edit_form.category) }}
+    </div>
+
+    <div class="row">
+        <div class="alert alert-danger">
+            {{ form_rest(edit_form) }}
+        </div>
+
+        <input class="btn btn-success col-md-2" type="submit" value="Edit" />
+        {{ form_end(edit_form) }}
+
+
+        <div class="col-md-2 col-md-offset-1">
+            <a class="btn btn-info btn-block" href="{{ path('admin_post_index') }}">Back to the list</a>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class=" btn btn-danger btn-block" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
+    <br>
+    <br>
 {% endblock %}

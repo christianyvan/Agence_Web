@@ -1,11 +1,63 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminNew.css') }}">
+{% endblock %}
 
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Post creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="form-group">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.title) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.name) }}
+
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content,{'attr':{'class':'form-control ckeditor'}}) }}
+            {{ form_errors(form.content) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.email) }}
+
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.image) }}
+            {{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.image) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.date) }}
+            {{ form_widget(form.date,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.date) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.isPosted) }}
+            {{ form_widget(form.isPosted,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.isPosted) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.category) }}
+            {{ form_widget(form.category,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.category) }}
+        </div>
+
         <input type="submit" value="Create" />
+        <div class="alert alert-danger">{{ form_rest(form) }}</div>
     {{ form_end(form) }}
 
     <ul>

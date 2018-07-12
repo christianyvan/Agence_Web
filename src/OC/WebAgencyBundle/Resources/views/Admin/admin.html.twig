@@ -7,6 +7,9 @@
  {% include 'OCWebAgencyBundle:Navigation:backEnd.html.twig' %}
 <div class="container">
     <h1>Dashboard</h1>
+    {% if message |e %}
+        <h1>{{ message }}</h1>
+    {% endif %}
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -14,13 +17,19 @@
                 <th>Author</th>
                 <th>Content</th>
                 <th>Post title</th>
-                <th>Post category</th>
                 <th>Date</th>
-                <th>Action</th>
+                <th>Valided</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
+
+
             {% for comment in comments %}
+                {% if comment.id |e %}
+                    <h1>Aucun commentaire à valider</h1>
+                {% endif %}
+
                 <tr>
                     <td>{{ comment.id }}</td>
                     <td>{{ comment.author }}</td>
@@ -28,16 +37,16 @@
                     {% for post in posts %}
                         {% if post.id == comment.postId %}
                             <td>{{ post.title }}</td>
-                            <td>{{ post.category }}</td>
-
                         {% endif %}
                     {% endfor %}
-                    <td>{{ comment.date|date("m/d/Y") }}</td>
+                     <td>{{ comment.date|date("m/d/Y") }}</td>
 
 
                     <td>
-                        <a href="{{ path('admin_comment_show',{'id': comment.id }) }}" class="btn btn-success glyphicon glyphicon-ok-circle "></a>
-                        <a href="{{ path('admin_comment_delete',{'id': comment.id }) }}" class="btn btn-danger "><span class=" glyphicon glyphicon-trash"></span></a>
+                        <a href="{{ path('admin_comment_show',{'id': comment.id }) }}" class="btn btn-success  "><span class=" glyphicon glyphicon-ok-circle"></span></a>
+                    </td>
+                    <td>
+                        <a href="{{ path('admin_comment_dashboard_delete',{'id': comment.id }) }}" class="btn btn-danger "><span class=" glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             {% endfor %}

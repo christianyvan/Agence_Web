@@ -18,21 +18,18 @@ class CommentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('author',TextType::class,array('attr' =>array('class'=>'form-control ')))
-				->add('email',TextType::class,array('attr' =>array('class'=>'form-control ')))
-				->add('content',TextareaType::class,array('attr' =>array('class'=>'form-control ckeditor ')))
-				->add('postId',IntegerType::class,array('attr' =>array('class'=>'form-control ')))
-				->add('isSeen',ChoiceType::class,array('attr' =>array('class'=>'form-control '),
-					'label' =>'Vue',
-					'choices' 	=> array(
-						'Not seen'  => 0,
-						'Seen'		=> 1
-					)
-				))
-				->add('date',DateType::class,array('attr' =>array('class'=>'form-control ')))
-				;
+        $builder->add('author',TextType::class)
+				->add('email',TextType::class)
+				->add('content',TextareaType::class)
+				->add('postId',IntegerType::class)
+				->add('isSeen', ChoiceType::class,array(
+					'choices'=>array(
+						'yes'=>'1',
+						'no'=>'0',
+					)))
+				->add('date',DateType::class);
+				//->add('posts');
     }
-
     /**
      * {@inheritdoc}
      */

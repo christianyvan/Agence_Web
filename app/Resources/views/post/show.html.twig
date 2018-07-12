@@ -1,56 +1,53 @@
 {% extends 'base.html.twig' %}
-
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminPost.css') }}">
+{% endblock %}
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Post</h1>
-
-    <table>
+<div class="table-responsive">
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
-                <td>{{ post.title }}</td>
-            </tr>
-            <tr>
                 <th>Name</th>
-                <td>{{ post.name }}</td>
-            </tr>
-            <tr>
                 <th>Content</th>
-                <td>{{ post.content }}</td>
-            </tr>
-            <tr>
+                <th>Category</th>
                 <th>Email</th>
-                <td>{{ post.email }}</td>
-            </tr>
-            <tr>
                 <th>Image</th>
-                <td>{{ post.image }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
-                <td>{% if post.date %}{{ post.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Isposted</th>
+
             </tr>
             <tr>
-                <th>Isposted</th>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.name }}</td>
+                <td>{{ post.content }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.email }}</td>
+                <td>{{ post.image }}</td>
+                <td>{% if post.date %}{{ post.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if post.isPosted %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>
+</div>
 
-    <ul>
-        <li>
+
+<div class="row">
+        <div class="col-md-2 btn btn-success ">
             <a href="{{ path('admin_post_index') }}">Back to the list</a>
-        </li>
-        <li>
+        </div>
+        <div class="col-md-2 col-md-offset-1 btn btn-success">
             <a href="{{ path('admin_post_edit', { 'id': post.id }) }}">Edit</a>
-        </li>
-        <li>
+        </div>
+        <div class="col-md-2">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger col-md-offset-1" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+</div>
+
 {% endblock %}

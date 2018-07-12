@@ -1,27 +1,24 @@
 {% extends 'base.html.twig' %}
-
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminComment.css') }}">
+{% endblock %}
 
 {% block body %}
     {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
-    {% block css %}
-        <link rel="stylesheet" href="{{ asset('css/adminCommentShow.css') }}">
-     {% endblock %}
-
     <h1>Comment</h1>
 
-    <table class="table table-dark table-striped">
-       <thead>
+    <table class="table-striped table-dark">
+        <tbody>
             <tr>
                 <th>Id</th>
                 <th>Author</th>
                 <th>Email</th>
                 <th>Content</th>
                 <th>Postid</th>
-                <th>IsSeen</th>
+                <th>Isseen</th>
                 <th>Date</th>
+
             </tr>
-       </thead>
-        <tbody>
             <tr>
                 <td>{{ comment.id }}</td>
                 <td>{{ comment.author }}</td>
@@ -34,15 +31,20 @@
         </tbody>
     </table>
 
+
+
+
     <ul>
         <li>
-            <a href="{{ path('oc_web_agency_admin') }}">Back to the list</a>
+            <a href="{{ path('admin_comment_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('admin_comment_delete', { 'id': comment.id }) }}">Delete</a>
+            <a href="{{ path('admin_comment_edit', { 'id': comment.id }) }}">Edit</a>
         </li>
-
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
     </ul>
-
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 {% endblock %}

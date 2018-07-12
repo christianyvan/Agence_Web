@@ -1,24 +1,25 @@
 {% extends 'base.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/adminComment.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/editComment.css') }}">
 {% endblock %}
 
 {% block body %}
-
     {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Comment edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-    <br>
-    <div class="row">
-        <div class="col-md-4 block">
-        <input type="submit" value="Edit" class="btn btn-primary btn-block" />
-        </div>
-        {{ form_end(edit_form) }}
-        <div class="col-md-4">
-         <a class="btn btn-success btn-block" href="{{ path('oc_web_agency_admin') }}">Back to the list</a>
-        </div>
-    </div>
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_comment_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
 {% endblock %}

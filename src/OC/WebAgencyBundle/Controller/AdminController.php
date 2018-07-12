@@ -9,6 +9,7 @@
 namespace OC\WebAgencyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use OC\WebAgencyBundle\Entity\Comment;
 
 
 /**
@@ -35,11 +36,37 @@ class AdminController extends Controller
 			throw new NotFoundHttpException("Pas de posts ");
 		}
 
+		if ($comments == null) {
+			$message = "Pas de commentaire à valider pour le moment";
+
+		}
+		else $message = "Vous avez des commentaires à valider";
+
 
 		return $this->render('OCWebAgencyBundle:Admin:admin.html.twig', array(
 			'comments' => $comments,
-			'posts'    => $posts
+			'posts'    => $posts,
+			'message' => $message
 		));
+	}
+
+	/**
+	 * Deletes a comment entity.
+	 * @param Comment $comment
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	public function deleteCommentAction(/*Request $request, */Comment $comment)
+	{
+		//$form = $this->createDeleteForm($comment);
+		//$form->handleRequest($request);
+
+		//if ($form->isSubmitted() && $form->isValid()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($comment);
+			$em->flush();
+		//}
+
+		return $this->redirectToRoute('oc_web_agency_admin');
 	}
 
 }

@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/adminComment.css') }}">
+<link rel="stylesheet" href="{{ asset('css/postList.css') }}">
 {% endblock %}
 
 {% block body %}
-
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Posts list</h1>
-
-    <table>
+<div class="table-responsive">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
                 <th>Name</th>
                 <th>Content</th>
+                <th>Category</th>
                 <th>Email</th>
                 <th>Image</th>
                 <th>Date</th>
@@ -28,6 +29,7 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.name }}</td>
                 <td>{{ post.content }}</td>
+                <td>{{ post.category }}</td>
                 <td>{{ post.email }}</td>
                 <td>{{ post.image }}</td>
                 <td>{% if post.date %}{{ post.date|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -46,10 +48,8 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_post_new') }}">Create a new post</a>
-        </li>
-    </ul>
+            <a class="btn btn-success" href="{{ path('admin_post_new') }}">Create a new post</a>
+
 {% endblock %}
