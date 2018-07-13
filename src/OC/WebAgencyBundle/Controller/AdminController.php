@@ -13,6 +13,7 @@ use OC\WebAgencyBundle\Entity\Comment;
 
 
 /**
+ * Gère l'affichage de la pade d'accueil de l'administration du site
  * Class AdminController
  * @package OC\WebAgencyBundle\Controller
  */
@@ -38,7 +39,7 @@ class AdminController extends Controller
 		$comments = $this->getDoctrine()
 			->getManager()
 			->getRepository('OCWebAgencyBundle:Comment')
-			->findAll();
+			->findBy(array('isSeen' => 0));
 
 		$posts = $this->getDoctrine()
 			->getManager()
@@ -56,6 +57,13 @@ class AdminController extends Controller
 		}
 		else $message = "Vous avez des commentaires à valider";
 
+		foreach ($comments as $comment){
+			 $content = nl2br(htmlspecialchars_decode($comment->getContent()));
+			 $comment->setContent($content);
+			 substr($comment->getContent(),0,200);
+		}
+
+
 
 		return $this->render('OCWebAgencyBundle:Admin:admin.html.twig', array(
 			'comments' => $comments,
@@ -69,17 +77,12 @@ class AdminController extends Controller
 	 * @param Comment $comment
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
 	 */
-	public function deleteCommentAction(/*Request $request, */Comment $comment)
+	public function deleteCommentAction(Comment $comment)
 	{
-		//$form = $this->createDeleteForm($comment);
-		//$form->handleRequest($request);
-
-		//if ($form->isSubmitted() && $form->isValid()) {
 			$em = $this->getDoctrine()->getManager();
 			$em->remove($comment);
 			$em->flush();
-		//}
-
+		
 		return $this->redirectToRoute('oc_web_agency_admin');
 	}
 

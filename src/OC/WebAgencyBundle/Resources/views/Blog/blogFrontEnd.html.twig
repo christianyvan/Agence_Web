@@ -13,25 +13,26 @@
     <div class="container">
 
         {% for post in posts %}
-        <div class="row"></div>
+        <div class="row">
             <br/>
-            <div class="container col s12">
+            <div class="container col-md-12">
                 <h4 class="">{{ post.title }}</h4>
             </div>
 
             <div class="col-md-4 col-sm-12">
                  <img src="{{ asset('images/image_1.jpg') }}" class="materialboxed responsive-img" alt="{{ post.title }}"/>
                  <br>
-
             </div>
-            <div class="col-md-8">
-                    {{ post.content }})
+            <div class="col-md-8 col-sm-12">
+                    {{ post.content|slice(0,500)|raw }}...
             </div>
-            <a class="btn grey " href="">Articles complet</a>
+            <a class="btn grey " href="{{ path('oc_web_agency_completepost',{'id': post.id })) }}">Article complet</a>
             <br/>
             <hr>
         </div><!-- end div row -->
         {% endfor %}
     </div>
+
+
 
 {% endblock %}

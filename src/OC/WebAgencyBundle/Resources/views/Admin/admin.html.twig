@@ -16,9 +16,9 @@
                 <th>ID</th>
                 <th>Author</th>
                 <th>Content</th>
-                <th>Post title</th>
+                <th>Title</th>
                 <th>Date</th>
-                <th>Valided</th>
+                <th>Published</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -26,9 +26,6 @@
 
 
             {% for comment in comments %}
-                {% if comment.id |e %}
-                    <h1>Aucun commentaire à valider</h1>
-                {% endif %}
 
                 <tr>
                     <td>{{ comment.id }}</td>

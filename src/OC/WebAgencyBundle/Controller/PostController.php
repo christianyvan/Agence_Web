@@ -114,7 +114,7 @@ class PostController extends Controller
 	 *
 	 * @param Post $post The post entity
 	 *
-	 * @return \Symfony\Component\Form\Form The form
+	 * @return \Symfony\Component\Form\FormInterface
 	 */
 	private function createDeleteForm(Post $post)
 	{
@@ -123,5 +123,17 @@ class PostController extends Controller
 			->setMethod('DELETE')
 			->getForm()
 			;
+	}
+
+
+	public function postAction(Request $request,$id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$post = $em->getRepository('OCWebAgencyBundle:Post')->find($id);
+
+		return $this->render('post/index.html.twig', array(
+			'post' => $post,
+		));
 	}
 }

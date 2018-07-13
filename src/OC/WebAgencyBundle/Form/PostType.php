@@ -26,6 +26,7 @@ class PostType extends AbstractType
 				->add('image',FileType::class,array('data_class' => null))
 				->add('date',DateType::class)
 				->add('isPosted',ChoiceType::class,array(
+					'label' => 'Published',
 					'choices' => array(
 						'Yes' => '1',
 						'No' => '0',

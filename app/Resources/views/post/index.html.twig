@@ -6,6 +6,8 @@
 {% block body %}
     {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Posts list</h1>
+    <a class="btn btn-success" href="{{ path('admin_post_new') }}">Create a new post</a>
+    <br><br>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -28,7 +30,7 @@
                 <td><a href="{{ path('admin_post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.name }}</td>
-                <td>{{ post.content }}</td>
+                <td>{{ post.content|slice(0,300)|raw }}...</td>
                 <td>{{ post.category }}</td>
                 <td>{{ post.email }}</td>
                 <td>{{ post.image }}</td>
@@ -50,6 +52,6 @@
     </table>
 </div>
 
-            <a class="btn btn-success" href="{{ path('admin_post_new') }}">Create a new post</a>
+
 
 {% endblock %}

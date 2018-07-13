@@ -16,6 +16,10 @@ oc_web_agency_blog:
     path:    /blog
     defaults: {_controller: OCWebAgencyBundle:Blog:blog }
 
+oc_web_agency_completepost:
+    path:    /post/{id}
+    defaults: {_controller: OCWebAgencyBundle:Post:post}   #******** a finir **************************
+
 #******** Route fosuser pour Commment  *************************************************
 
 admin_comment_index:
