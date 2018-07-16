@@ -20,15 +20,15 @@ class CommentType extends AbstractType
     {
         $builder->add('author',TextType::class)
 				->add('email',TextType::class)
-				->add('content',TextareaType::class)
-				->add('postId',IntegerType::class)
+				->add('content',TextareaType::class);
+				/*->add('postId',IntegerType::class)
 				->add('isSeen', ChoiceType::class,array(
 					'choices'=>array(
 						'yes'=>'1',
 						'no'=>'0',
 					)))
 				->add('date',DateType::class);
-				//->add('posts');
+				->add('posts');*/
     }
     /**
      * {@inheritdoc}

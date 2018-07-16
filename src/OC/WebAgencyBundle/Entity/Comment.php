@@ -3,6 +3,7 @@
 namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -69,6 +70,15 @@ class Comment
 	 * @ORM\JoinColumn(name="postId", referencedColumnName="id")
 	 */
 	private $posts;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct()
+	{
+		$this->date = new \DateTime('NOW');
+		$this->isSeen = 0;
+	}
 
 
     /**

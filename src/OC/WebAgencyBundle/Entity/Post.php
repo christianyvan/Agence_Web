@@ -85,6 +85,15 @@ class Post
 	 */
 	private $comments;
 
+	/**
+	 * Constructor
+	 */
+	public function __construct()
+	{
+		$this->comments = new ArrayCollection();
+		$this->date = new \DateTime('NOW');
+	}
+
 
     /**
      * Get id
@@ -263,14 +272,7 @@ class Post
     {
         return $this->isPosted;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-        $this->date = new \DateTime('NOW');
-    }
+
 
     /**
      * Add comment
@@ -279,7 +281,7 @@ class Post
      *
      * @return Post
      */
-    public function addComment(\OC\WebAgencyBundle\Entity\Comment $comment)
+    public function addComment(Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -291,7 +293,7 @@ class Post
      *
      * @param \OC\WebAgencyBundle\Entity\Comment $comment
      */
-    public function removeComment(\OC\WebAgencyBundle\Entity\Comment $comment)
+    public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
     }

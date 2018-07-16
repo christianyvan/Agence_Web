@@ -11,6 +11,10 @@ oc_web_agency_admin:
     defaults: {_controller: OCWebAgencyBundle:Admin:admin}
 
 #**************************************************route front end ****************************************
+oc_web_agency_addcommentpost:
+    path:    /add_comment
+    defaults: {_controller: OCWebAgencyBundle:Post:addCommentPost}
+
 
 oc_web_agency_blog:
     path:    /blog
@@ -18,7 +22,8 @@ oc_web_agency_blog:
 
 oc_web_agency_completepost:
     path:    /post/{id}
-    defaults: {_controller: OCWebAgencyBundle:Post:post}   #******** a finir **************************
+    defaults: {_controller: OCWebAgencyBundle:Post:post}
+
 
 #******** Route fosuser pour Commment  *************************************************
 

@@ -1,17 +1,57 @@
 {% extends '::base.html.twig' %}
 
-
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/post.css') }}">
+{% endblock %}
 {% block body %}
     {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
 
+    <div class="row">
+        <br/>
+        <div class="container col-md-12">
+            <h4 class="">{{ post.title }}</h4>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <img src="WebAgency/web/images/{{ post.image }}" class="" alt="{{ post.title }}"/>
+            <br>
+        </div>
+        <div class="col-md-8 col-sm-12">
+            {{ post.content|raw }}
+        </div>
+        <a class="btn btn-info" href="{{ path('oc_web_agency_blog') }}">Retour au blog</a>
+        <a class="btn btn-info" href="{{ path('oc_web_agency_homepage') }}">Accueil</a>
+        <br/>
+        <hr>
+    </div><!-- end div row -->
 
 
+ <div class="container ">
+    <h4>Laisser votre commentaire:</h4>
+    <form method="post" action ={{ path('oc_web_agency_addcommentpost') }} class="container">
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <label for="author">Nom</label>
+                <input class="form-control" id="author" name="author" type="text" required="required" >
+            </div>
 
+            <div class="input-field col s12 m6">
+                <label for="email">Adresse email</label>
+                <input  class="form-control" type="text" id="email" name="email" >
+            </div>
 
+            <div class="input-field col s12 m12">
+                <label for="comment">Votre commentaire</label>
+                <textarea  class="form-control" id="comment" name="comment" required="required"></textarea>
+            </div>
+            <br>
+            <div class="col s12">
 
-
-
-
-
+                <button class="btn btn-info" type="submit" name="submit" value={{ post.id }}>  commenter</button>
+            </div>
+        </div>
+    </form>
+ </div>
+    <br>
 
 {% endblock %}

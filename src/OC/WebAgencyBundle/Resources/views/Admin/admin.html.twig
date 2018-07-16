@@ -7,6 +7,30 @@
  {% include 'OCWebAgencyBundle:Navigation:backEnd.html.twig' %}
 <div class="container">
     <h1>Dashboard</h1>
+
+    <?php foreach($tables as $table_name => $table): ?>
+    <div class=" col l4 m6 s12 ">
+        <div class="card">
+            <div class="card-content <?= $colors[$table]?> ">
+                <center>
+                    <span class="card-title white-text "><?= $table_name ?>
+                    </span>
+                </center>
+                <center>
+                    <h4 class="white-text"><?= $nbrInTable[$table]?></h4>
+                </center>
+            </div>
+        </div>
+    </div>
+    <?php endforeach ?>
+
+
+
+
+
+
+
+
     {% if message |e %}
         <h1>{{ message }}</h1>
     {% endif %}
@@ -36,7 +60,7 @@
                             <td>{{ post.title }}</td>
                         {% endif %}
                     {% endfor %}
-                     <td>{{ comment.date|date("m/d/Y") }}</td>
+                     <td>{{ comment.date|date("d/m/Y") }}</td>
 
 
                     <td>
