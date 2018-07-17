@@ -7,9 +7,16 @@
  */
 
 namespace OC\WebAgencyBundle\Controller;
+use OC\WebAgencyBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use OC\WebAgencyBundle\Entity\Comment;
+use OC\WebAgencyBundle\Entity\User;
+
+
+
+
+
 
 
 /**
@@ -33,16 +40,21 @@ class AdminController extends Controller
 		return $this->redirectToRoute('oc_web_agency_admin');
 	}
 
+	/**
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 * @throws \Doctrine\ORM\ORMException
+	 */
 	public function adminAction(){
-
-
+		$em = $this->getDoctrine()->getManager();
+		//$newComment = new CommentRepository($em,);
+		//$newPost = new PostRepository($em);
+		//$newUser = new UserRepository($em);
 		$comments = $this->getDoctrine()
 			->getManager()
 			->getRepository('OCWebAgencyBundle:Comment')
 			->findBy(array('isSeen' => 0));
 
-		$posts = $this->getDoctrine()
-			->getManager()
+		$posts = $em
 			->getRepository('OCWebAgencyBundle:Post')
 			->findAll();
 
@@ -64,11 +76,21 @@ class AdminController extends Controller
 		}
 
 
+		$nbAdmins = $em->getRepository(User::class)
+						->numberAdmins();
+
+		$nbComments = $em  ->getRepository(Comment::class)
+						   ->numberComments();
+		$nbPosts = $em	->getRepository(Post::class)
+			            ->numberPosts();
 
 		return $this->render('OCWebAgencyBundle:Admin:admin.html.twig', array(
 			'comments' => $comments,
 			'posts'    => $posts,
-			'message' => $message
+			'message' => $message,
+			'nbAdmins' => $nbAdmins,
+			'nbComments' => $nbComments,
+			'nbPosts' => $nbPosts
 		));
 	}
 

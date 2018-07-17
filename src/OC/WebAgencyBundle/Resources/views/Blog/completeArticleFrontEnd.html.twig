@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12">
-            <img src="WebAgency/web/images/{{ post.image }}" class="" alt="{{ post.title }}"/>
+            <img src="{{ post.image }}" class="" alt="{{ post.title }}"/>
             <br>
         </div>
         <div class="col-md-8 col-sm-12">
@@ -24,6 +24,19 @@
         <br/>
         <hr>
     </div><!-- end div row -->
+
+<h3>Liste des commentaires</h3>
+    <div class="row">
+        {%  for comment in comments  %}
+            <br/>
+            <div class="container col-md-12">
+                <h4 class="">{{ comment.author }}</h4>
+            </div>
+            <p>{{ comment.content }}</p>
+
+        {% endfor %}
+    </div><!-- end div row -->
+
 
 
  <div class="container ">

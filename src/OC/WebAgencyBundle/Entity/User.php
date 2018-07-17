@@ -4,7 +4,7 @@ namespace OC\WebAgencyBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User extends BaseUser

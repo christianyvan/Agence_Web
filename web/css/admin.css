@@ -1,5 +1,5 @@
 h1{
-      margin-top:50px;
+      margin-top:3em;
   }
 
 table {
@@ -10,3 +10,14 @@ table, th, td {
     border: 1px solid black;
 }
 
+#card_1{
+   background-color: lightsalmon;
+}
+
+#card_2{
+    background-color: lightblue;
+}
+
+#card_3{
+    background-color: lightgreen;
+}

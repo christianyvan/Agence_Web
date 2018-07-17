@@ -2,3 +2,7 @@ services:
 #    oc_web_agency.example:
 #        class: OC\WebAgencyBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    oc.webagency.number_handling:
+        public: true
+        class: OC\WebAgencyBundle\Services\OCDashboardHandling
+        arguments: ["@doctrine.orm.entity_manager"]

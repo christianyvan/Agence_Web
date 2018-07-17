@@ -26,8 +26,10 @@ class BlogController extends Controller
 		$posts=$em->getRepository('OCWebAgencyBundle:Post')->findAll();
 
 
+
 		return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
 			'posts'=>$posts,
+
 		));
 	}
 

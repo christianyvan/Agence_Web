@@ -8,21 +8,30 @@
 <div class="container">
     <h1>Dashboard</h1>
 
-    <?php foreach($tables as $table_name => $table): ?>
-    <div class=" col l4 m6 s12 ">
-        <div class="card">
-            <div class="card-content <?= $colors[$table]?> ">
-                <center>
-                    <span class="card-title white-text "><?= $table_name ?>
-                    </span>
-                </center>
-                <center>
-                    <h4 class="white-text"><?= $nbrInTable[$table]?></h4>
-                </center>
+        <div class="card col-md-3 " id="card_1">
+            <div class="card-block">
+                <h4 class="card-title col-md-offset-4">Publications</h4>
+                <p class="card-text col-md-offset-5">{{ nbPosts }}</p>
             </div>
         </div>
-    </div>
-    <?php endforeach ?>
+
+        <div class="card col-md-3 col-md-offset-1" id="card_2">
+            <div class="card-block">
+                <h4 class="card-title col-md-offset-4">Comments</h4>
+                <p class="card-text col-md-offset-5">{{ nbComments }}</p>
+
+
+            </div>
+        </div>
+
+        <div class="card col-md-3 col-md-offset-1" id="card_3">
+            <div class="card-block">
+                <h4 class="card-title col-md-offset-4">Admins</h4>
+                <p class="card-text col-md-offset-5">{{ nbAdmins }}</p>
+            </div>
+        </div>
+</div>
+
 
 
 
