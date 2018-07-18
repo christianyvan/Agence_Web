@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0df5a7e-001e-438a-acfe-8be37aab8ee1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/ContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Contacts/contacts.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/post/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/post/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/post/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/post/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Navigation/frontEnd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Navigation/frontEnd.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/postList.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/postList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Entity/Contact.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Repository/ContactRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/doctrine/Contact.orm.yml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,24 +38,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="14" selection-end-line="6" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="completeArticleFrontEnd.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="919">
-              <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postList.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/postList.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -102,11 +78,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
-              <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contact.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Entity/Contact.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -115,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/ContactController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="e#134#172#0#PHP" expanded="true" />
               </folding>
@@ -139,8 +124,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s doctrine:schema:update --dump-sql " />
-      <command text="s doctrine:schema:update --force" />
       <command text="s cache:clear" />
       <command text="s doctrine:schema:update --dump-sql " />
       <command text="s doctrine:generate:entities OCWebAgencyBundle" />
@@ -162,6 +145,8 @@
       <command text="s doctrine:schema:update --force" />
       <command text="s cache:clear" />
       <command text="s doctrine:generate:crud " />
+      <command text="s cache:clear" />
+      <command text="s doctrine:generate:entity " />
       <command text="s cache:clear" />
       <command text="s doctrine:generate:entity " />
     </commandsHistory>
@@ -389,45 +374,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Blog" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Navigation" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -506,24 +452,25 @@
       <workItem from="1531741464194" duration="28575000" />
       <workItem from="1531808580540" duration="17688000" />
       <workItem from="1531836653834" duration="4984000" />
-      <workItem from="1531892993107" duration="18754000" />
+      <workItem from="1531892993107" duration="19715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228534000" />
+    <option name="totallyTimeSpent" value="229495000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.5505618" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.13001606" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -572,20 +519,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/comment/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Navigation/backEnd.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -930,17 +863,31 @@
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/ContactController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#134#172#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/doctrine/Contact.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
-          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Entity/Contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>

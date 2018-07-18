@@ -2,38 +2,57 @@
 
 namespace OC\WebAgencyBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Contact
+ *
+ * @ORM\Table(name="contact")
+ * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\ContactRepository")
  */
 class Contact
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     */
-    private $firstName;
-
-    /**
-     * @var string
+     *
+     * @ORM\Column(name="lastName", type="string", length=255)
      */
     private $lastName;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="firstName", type="string", length=255)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="object", type="string", length=255)
      */
-    private $subject;
+    private $object;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="message", type="string", length=255)
      */
     private $message;
 
@@ -46,30 +65,6 @@ class Contact
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Contact
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
     }
 
     /**
@@ -97,6 +92,30 @@ class Contact
     }
 
     /**
+     * Set firstName
+     *
+     * @param string $firstName
+     *
+     * @return Contact
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
@@ -121,27 +140,27 @@ class Contact
     }
 
     /**
-     * Set subject
+     * Set object
      *
-     * @param string $subject
+     * @param string $object
      *
      * @return Contact
      */
-    public function setSubject($subject)
+    public function setObject($object)
     {
-        $this->subject = $subject;
+        $this->object = $object;
 
         return $this;
     }
 
     /**
-     * Get subject
+     * Get object
      *
      * @return string
      */
-    public function getSubject()
+    public function getObject()
     {
-        return $this->subject;
+        return $this->object;
     }
 
     /**
