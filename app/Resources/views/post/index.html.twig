@@ -9,47 +9,59 @@
     <a class="btn btn-success" href="{{ path('admin_post_new') }}">Create a new post</a>
     <br><br>
 <div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Name</th>
-                <th>Content</th>
-                <th>Category</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Date</th>
-                <th>Isposted</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
+
         {% for post in posts %}
-            <tr>
-                <td><a href="{{ path('admin_post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
-                <td>{{ post.title }}</td>
-                <td>{{ post.name }}</td>
-                <td>{{ post.content|slice(0,300)|raw }}...</td>
-                <td>{{ post.category }}</td>
-                <td>{{ post.email }}</td>
-                <td>{{ post.image }}</td>
-                <td>{% if post.date %}{{ post.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if post.isPosted %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_post_show', { 'id': post.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_post_edit', { 'id': post.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
+     <table class="table table-striped">
+        <tr>
+
+            <td><a class="btn btn-block btn-info" href="{{ path('admin_post_show', { 'id': post.id }) }}">show</a></td>
+            <td><a class="btn btn-block btn-success" href="{{ path('admin_post_edit', { 'id': post.id }) }}">edit</a></td>
+        </tr>
+
+        <tr>
+             <th>Id</th>
+             <td><a href="{{ path('admin_post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
+        </tr>
+        <tr>
+             <th>Title</th>
+             <td>{{ post.title }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ post.name }}</td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>{{ post.content|slice(0,300)|raw }}...</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>{{ post.category }}</td>
+        </tr>
+        <tr>
+             <th>Email</th>
+             <td>{{ post.email }}</td>
+        </tr>
+        <tr>
+             <th>Image</th>
+             <td>{{ post.image }}</td>
+        </tr>
+        <tr>
+             <th>Date</th>
+             <td>{% if post.date %}{{ post.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+        </tr>
+        <tr>
+             <th>Isposted</th>
+             <td>{% if post.isPosted %}Yes{% else %}No{% endif %}</td>
+        </tr>
+            <br><br>
+
     </table>
+
+        {% endfor %}
+
+
 </div>
 
 

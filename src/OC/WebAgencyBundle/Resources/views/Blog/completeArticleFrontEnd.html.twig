@@ -26,11 +26,15 @@
     </div><!-- end div row -->
 
 <h3>Liste des commentaires</h3>
+    {% if comments|e %}
+        <p>Pas de commentaires pour cet article, soyez le premier.</p>
+    {% endif %}
     <div class="row">
         {%  for comment in comments  %}
+
             <br/>
             <div class="container col-md-12">
-                <h4 class="">{{ comment.author }}</h4>
+                <h4>{{ comment.author }}</h4>
             </div>
             <p>{{ comment.content }}</p>
 
@@ -41,19 +45,19 @@
 
  <div class="container ">
     <h4>Laisser votre commentaire:</h4>
-    <form method="post" action ={{ path('oc_web_agency_addcommentpost') }} class="container">
+    <form method="post" action ={{ path('oc_web_agency_addcommentpost') }} >
         <div class="row">
             <div class="input-field col s12 m6">
                 <label for="author">Nom</label>
                 <input class="form-control" id="author" name="author" type="text" required="required" >
             </div>
 
-            <div class="input-field col s12 m6">
+            <div >
                 <label for="email">Adresse email</label>
-                <input  class="form-control" type="text" id="email" name="email" >
+                <input  class="form-control" type="email" id="email" name="email" >
             </div>
 
-            <div class="input-field col s12 m12">
+            <div >
                 <label for="comment">Votre commentaire</label>
                 <textarea  class="form-control" id="comment" name="comment" required="required"></textarea>
             </div>

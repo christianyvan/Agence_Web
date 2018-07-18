@@ -24,6 +24,10 @@ oc_web_agency_completepost:
     path:    /post/{id}
     defaults: {_controller: OCWebAgencyBundle:Post:post}
 
+oc_web_agency_contact:
+    path: /contact
+    defaults: {_controller: OCWebAgencyBundle:Contact:contacts}
+
 
 #******** Route fosuser pour Commment  *************************************************
 
@@ -88,3 +92,7 @@ admin_comment_dashboard_delete:
 admin_updateIsSeen:
     path: /admin/comment/update/{id}
     defaults: { _controller: "OCWebAgencyBundle:Admin:updateIsSeen"}
+
+#************************ route contacts ********************************************************
+
+
