@@ -54,12 +54,13 @@ class Post
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+	 *
      */
     private $email;
 
     /**
      * @var string
-     *
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;

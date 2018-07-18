@@ -6,3 +6,14 @@ services:
         public: true
         class: OC\WebAgencyBundle\Services\OCDashboardHandling
         arguments: ["@doctrine.orm.entity_manager"]
+
+    oc.webagency.image_uploader:
+        class: OC\WebAgencyBundle\Services\ImageUpload
+        arguments: ['%images_directory%']
+
+    oc.webagency.doctrine_image_listener:
+        class: OC\WebAgencyBundle\Services\ImageUploadListener
+        arguments: ['@oc.webagency.image_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

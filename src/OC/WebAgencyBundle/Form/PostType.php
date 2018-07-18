@@ -5,6 +5,7 @@ namespace OC\WebAgencyBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,8 +23,8 @@ class PostType extends AbstractType
 				->add('name',TextType::class)
 				->add('content',TextareaType::class)
 				->add('category',TextType::class)
-				->add('email',TextType::class)
-				->add('image',FileType::class,array('data_class' => null))
+				->add('email',EmailType::class)
+				->add('image',FileType::class, array('data_class' => null,'label' => 'Image(JPG)'))
 				->add('date',DateType::class)
 				->add('isPosted',ChoiceType::class,array(
 					'label' => 'Published',
