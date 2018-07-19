@@ -1,6 +1,6 @@
-oc_web_agency_admin_post:
-    resource: "@OCWebAgencyBundle/Resources/config/routing/post.yml"
-    prefix:   /admin/post
+#oc_web_agency_admin_post:
+#    resource: "@OCWebAgencyBundle/Resources/config/routing/post.yml"
+#    prefix:   /admin/post
 
 oc_web_agency_homepage:
     path:     /

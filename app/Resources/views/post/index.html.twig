@@ -6,18 +6,18 @@
 {% block body %}
     {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Posts list</h1>
-    <a class="btn btn-success" href="{{ path('admin_post_new') }}">Create a new post</a>
+
     <br><br>
 <div class="table-responsive">
 
 
         {% for post in posts %}
-     <table class="table table-striped">
-        <tr>
+     <a class="btn btn-success col-md-2" href="{{ path('admin_post_new') }}">Create a new post</a>
+     <a class="btn  btn-info col-md-2 col-md-offset-1" href="{{ path('admin_post_show', { 'id': post.id }) }}">show</a>
+     <a class="btn  btn-success col-md-2 col-md-offset-1" href="{{ path('admin_post_edit', { 'id': post.id }) }}">edit</a>
 
-            <td><a class="btn btn-block btn-info" href="{{ path('admin_post_show', { 'id': post.id }) }}">show</a></td>
-            <td><a class="btn btn-block btn-success" href="{{ path('admin_post_edit', { 'id': post.id }) }}">edit</a></td>
-        </tr>
+     <table class="table table-striped">
+
 
         <tr>
              <th>Id</th>
