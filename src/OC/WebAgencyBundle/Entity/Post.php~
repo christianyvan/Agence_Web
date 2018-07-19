@@ -54,12 +54,13 @@ class Post
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+	 *
      */
     private $email;
 
     /**
      * @var string
-     *
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      * @ORM\Column(name="image", type="string", length=255)
      */
     private $image;
@@ -84,6 +85,15 @@ class Post
 	 * @Assert\Valid()
 	 */
 	private $comments;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct()
+	{
+		$this->comments = new ArrayCollection();
+		$this->date = new \DateTime('NOW');
+	}
 
 
     /**
@@ -263,14 +273,7 @@ class Post
     {
         return $this->isPosted;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-        $this->date = new \DateTime('NOW');
-    }
+
 
     /**
      * Add comment
@@ -279,7 +282,7 @@ class Post
      *
      * @return Post
      */
-    public function addComment(\OC\WebAgencyBundle\Entity\Comment $comment)
+    public function addComment(Comment $comment)
     {
         $this->comments[] = $comment;
 
@@ -291,7 +294,7 @@ class Post
      *
      * @param \OC\WebAgencyBundle\Entity\Comment $comment
      */
-    public function removeComment(\OC\WebAgencyBundle\Entity\Comment $comment)
+    public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
     }

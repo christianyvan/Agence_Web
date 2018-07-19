@@ -3,6 +3,7 @@
 namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -43,11 +44,11 @@ class Comment
      */
     private $content;
 
-	/**
-	 * @var int
-	 *
-	 * @ORM\Column(name="postId", type="integer")
-	 */
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="postId", type="integer", nullable=true)
+     */
     private $postId;
 
     /**
@@ -65,11 +66,19 @@ class Comment
     private $date;
 
 	/**
-	 * @var
 	 * @ORM\ManyToOne(targetEntity="OC\WebAgencyBundle\Entity\Post", inversedBy="comments", cascade={"persist"})
 	 * @ORM\JoinColumn(name="postId", referencedColumnName="id")
 	 */
 	private $posts;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct()
+	{
+		$this->date = new \DateTime('NOW');
+		$this->isSeen = 0;
+	}
 
 
     /**

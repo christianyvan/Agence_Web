@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
+
+<div>Nous vous confirmons avoir reçu les données de notre formulaire de contact, merci de votre visite</div>
+
+{% endblock %}

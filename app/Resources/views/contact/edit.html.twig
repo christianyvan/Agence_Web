@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminContact.css') }}">
+{% endblock %}
+{% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+
+
+
+    <h1>Contact edit</h1>
+
+{{ form_start(edit_form) }}
+<div class="form-group">
+    {{ form_label(edit_form.lastName) }}
+    {{ form_widget(edit_form.lastName,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(edit_form.lastName) }}
+
+</div>
+<div class="form-group">
+    {{ form_label(edit_form.firstName) }}
+    {{ form_widget(edit_form.firstName,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(edit_form.firstName) }}
+
+</div>
+
+<div class="form-group">
+    {{ form_label(edit_form.email) }}
+    {{ form_widget(edit_form.email,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(edit_form.email) }}
+
+</div>
+
+<div class="form-group">
+    {{ form_label(edit_form.object) }}
+    {{ form_widget(edit_form.object,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(edit_form.object) }}
+</div>
+<div class="form-group">
+    {{ form_label(edit_form.message) }}
+    {{ form_widget(edit_form.message,{'attr':{'class':'form-control'}}) }}
+    {{ form_errors(edit_form.message) }}
+
+</div>
+     <div class="row">
+         <div class="col-md-3">
+            <input type="submit" value="Edit" />
+         </div>
+        {{ form_end(edit_form) }}
+         <div class="col-md-3 col-md-offset-1">
+             <a href="{{ path('admin_contact_index') }}">Back to the list</a>
+         </div>
+
+         <div class="col-md-3 col-md-offset-1">
+            {{ form_start(delete_form) }}
+             <input type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+         </div>
+     </div>
+
+{% endblock %}

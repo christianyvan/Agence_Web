@@ -1,11 +1,75 @@
 {% extends '::base.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 {% endblock %}
 
 {% block body %}
     {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1>Formulaire de contact</h1>
 
+                <div class="alert alert-success">
+                    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+                    {% if flashbag_notices is not empty %}
+
+                        <div class="flash-notice">
+                            {% for notice in flashbag_notices %}
+                                {{notice}}
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+                </div>
+
+
+
+
+
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.lastName) }}
+                    {{ form_widget(form.lastName,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.lastName) }}
+
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.firstName) }}
+
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.object) }}
+                    {{ form_widget(form.object,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.object) }}
+
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.message) }}
+                    {{ form_widget(form.message,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.message) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.save, {'attr': {
+                            'class': 'btn-success' }}) }}
+
+                </div>
+
+                    {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
 
 
 

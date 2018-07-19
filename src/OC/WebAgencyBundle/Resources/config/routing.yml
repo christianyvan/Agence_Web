@@ -24,12 +24,16 @@ oc_web_agency_completepost:
     path:    /post/{id}
     defaults: {_controller: OCWebAgencyBundle:Post:post}
 
-oc_web_agency_contact:
+oc_web_agency_createcontact:
     path: /contact
-    defaults: {_controller: OCWebAgencyBundle:Contact:contacts}
+    defaults: {_controller: OCWebAgencyBundle:Contacts:createContact}
+
+oc_web_agency_sendmail:
+    path: /email/{id}
+    defaults: {_controller: OCWebAgencyBundle:Contacts:sendMail}
 
 
-#******** Route fosuser pour Commment  *************************************************
+#******** Route  pour Commment  *************************************************
 
 admin_comment_index:
     path:     /admin/comment
@@ -56,7 +60,7 @@ admin_comment_delete:
     defaults: { _controller: "OCWebAgencyBundle:Comment:delete" }
     methods:  DELETE
 
-#******** Route fosuser pour Post  *************************************************
+#******** Route  pour Post  *************************************************
 
 admin_post_index:
     path:     /admin/post
@@ -82,6 +86,35 @@ admin_post_delete:
     path:     /admin/post/delete/{id}
     defaults: { _controller: "OCWebAgencyBundle:Post:delete" }
     methods:  DELETE
+
+#************************* route contact ******************************************************************
+admin_contact_index:
+    path:     /admin/contact
+    defaults: { _controller: "OCWebAgencyBundle:Contact:index" }
+    methods:  GET
+
+admin_contact_show:
+    path:     admin/contact/show/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Contact:show" }
+    methods:  GET
+
+admin_contact_new:
+    path:     /admin/contact/new
+    defaults: { _controller: "OCWebAgencyBundle:Contact:new" }
+    methods:  [GET, POST]
+
+admin_contact_edit:
+    path:     admin/contact/edit/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Contact:edit" }
+    methods:  [GET, POST]
+
+admin_contact_delete:
+    path:     admin/contact/delete/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Contact:delete" }
+    methods:  DELETE
+
+
+
 #********************************************** route dashboard *******************************************
 
 admin_comment_dashboard_delete:
@@ -93,6 +126,6 @@ admin_updateIsSeen:
     path: /admin/comment/update/{id}
     defaults: { _controller: "OCWebAgencyBundle:Admin:updateIsSeen"}
 
-#************************ route contacts ********************************************************
+#************************ route contact ********************************************************
 
 

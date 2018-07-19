@@ -1,3 +1,7 @@
+oc_web_agency_contact:
+    resource: "@OCWebAgencyBundle/Controller/ContactController.php"
+    type:     annotation
+
 
 oc_web_agency_comment:
     resource: "@OCWebAgencyBundle/Controller/CommentController.php"
