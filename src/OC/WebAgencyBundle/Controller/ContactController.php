@@ -5,6 +5,7 @@ namespace OC\WebAgencyBundle\Controller;
 use OC\WebAgencyBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use OC\WebAgencyBundle\Form\ContactType;
 
 /**
  * Contact controller.
@@ -13,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ContactController extends Controller
 {
     /**
-     * Lists all contacton entities.
+     * Lists all contact entities.
      *
      */
     public function indexAction()
@@ -27,10 +28,11 @@ class ContactController extends Controller
         ));
     }
 
-    /**
-     * Creates a new contacton entity.
-     *
-     */
+	/**
+	 * Creates a new contact entity.
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
     public function newAction(Request $request)
     {
         $contact = new Contact();
@@ -46,13 +48,13 @@ class ContactController extends Controller
         }
 
         return $this->render('contact/new.html.twig', array(
-            'contacton' => $contact,
+            'contact' => $contact,
             'form' => $form->createView(),
         ));
     }
 
 	/**
-	 * Finds and displays a contacton entity.
+	 * Finds and displays a contact entity.
 	 * @param Contact $contact
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
@@ -67,7 +69,7 @@ class ContactController extends Controller
     }
 
 	/**
-	 * Displays a form to edit an existing contacton entity.
+	 * Displays a form to edit an existing contact entity.
 	 * @param Request $request
 	 * @param Contact $contact
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -85,16 +87,18 @@ class ContactController extends Controller
         }
 
         return $this->render('contact/edit.html.twig', array(
-            'contacton' => $contact,
+            'contact' => $contact,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
-    /**
-     * Deletes a contacton entity.
-     *
-     */
+	/**
+	 * Deletes a contact entity.
+	 * @param Request $request
+	 * @param Contact $contact
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
     public function deleteAction(Request $request, Contact $contact)
     {
         $form = $this->createDeleteForm($contact);
@@ -110,11 +114,11 @@ class ContactController extends Controller
     }
 
     /**
-     * Creates a form to delete a contacton entity.
+     * Creates a form to delete a contact entity.
      *
-     * @param Contact $contact The contacton entity
+     * @param Contact $contact The contact entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface
      */
     private function createDeleteForm(Contact $contact)
     {
@@ -158,22 +162,22 @@ class ContactController extends Controller
 	public function sendMailAction($id)
 	{
 
-		// On réaffiche l'ensemble de la réservation avec le détail
+
 		$contact = $this->getDoctrine()
 			->getManager()
-			->getRepository('Contact.php')
+			->getRepository('OCWebAgencyBundle:Contact')
 			->find($id);
 
 		// Préparation de l'email avec les informations de la commande
 		$message = \Swift_Message::newInstance()
 			->setSubject('Agence LEON - Votre demande à bien été reçu merci pour votre commentaire')
 			->setFrom(array('christian.yvan@gmail.com' => "Agence Web LEON"))
-			->setTo($contact->getContactEmail())
+			->setTo($contact->getEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
 			->attach(\Swift_Attachment::fromPath('uploads/images/image_1.jpg')->setDisposition('inline'))
 			//->setBody($this->renderView('OCWebAgencyBundle:Contacts:contact.html.twig',array('name' => $name)),'text/html');
-			->setBody($this->renderView('OCWebAgencyBundle:Contacts:contacts.html.twig', array(
+			->setBody($this->renderView('OCWebAgencyBundle:Contacts:sendEmail.html.twig', array(
 				'contact'   	  =>$contact
 			)));
 
@@ -181,6 +185,6 @@ class ContactController extends Controller
 		$this->get('mailer')
 			->send($message);
 
-
+		return $this->render('OCWebAgencyBundle:Home:index.html.twig');
 	}
 }

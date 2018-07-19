@@ -26,11 +26,11 @@ oc_web_agency_completepost:
 
 oc_web_agency_createcontact:
     path: /contact
-    defaults: {_controller: OCWebAgencyBundle:Contacts:createContact}
+    defaults: {_controller: OCWebAgencyBundle:Contact:createContact}
 
 oc_web_agency_sendmail:
     path: /email/{id}
-    defaults: {_controller: OCWebAgencyBundle:Contacts:sendMail}
+    defaults: {_controller: OCWebAgencyBundle:Contact:sendMail}
 
 
 #******** Route  pour Commment  *************************************************
@@ -128,4 +128,28 @@ admin_updateIsSeen:
 
 #************************ route contact ********************************************************
 
+admin_page_index:
+    path:     /admin/page
+    defaults: { _controller: "OCWebAgencyBundle:Page:index" }
+    methods:  GET
+
+admin_page_show:
+    path:     /admin/page/show/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Page:show" }
+    methods:  GET
+
+admin_page_new:
+    path:     /admin/page/new
+    defaults: { _controller: "OCWebAgencyBundle:Page:new" }
+    methods:  [GET, POST]
+
+admin_page_edit:
+    path:     /admin/page/edit/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Page:edit" }
+    methods:  [GET, POST]
+
+admin_page_delete:
+    path:     /admin/page/delete/{id}
+    defaults: { _controller: "OCWebAgencyBundle:Page:delete" }
+    methods:  DELETE
 
