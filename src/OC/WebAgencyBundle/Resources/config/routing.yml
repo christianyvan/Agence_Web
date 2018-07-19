@@ -44,80 +44,80 @@ oc_web_agency_sendmail:
 
 admin_comment_index:
     path:     /admin/comment
-    defaults: { _controller: "OCWebAgencyBundle:Comment:index" }
+    defaults: { _controller: OCWebAgencyBundle:Comment:index }
     methods:  GET
 
 admin_comment_show:
     path:     /admin/comment/show/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Comment:show" }
+    defaults: { _controller: OCWebAgencyBundle:Comment:show }
     methods:  GET
 
 admin_comment_new:
     path:     /admin/comment/new
-    defaults: { _controller: "OCWebAgencyBundle:Comment:new" }
+    defaults: { _controller: OCWebAgencyBundle:Comment:new }
     methods:  [GET, POST]
 
 admin_comment_edit:
     path:     /admin/comment/edit/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Comment:edit" }
+    defaults: { _controller: OCWebAgencyBundle:Comment:edit }
     methods:  [GET, POST]
 
 admin_comment_delete:
     path:     /admin/comment/delete/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Comment:delete" }
+    defaults: { _controller: OCWebAgencyBundle:Comment:delete }
     methods:  DELETE
 
 #******** Route  pour Post  *************************************************
 
 admin_post_index:
     path:     /admin/post
-    defaults: { _controller: "OCWebAgencyBundle:Post:index" }
+    defaults: { _controller: OCWebAgencyBundle:Post:index }
     methods:  GET
 
 admin_post_show:
     path:     /admin/post/show/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Post:show" }
+    defaults: { _controller: OCWebAgencyBundle:Post:show }
     methods:  GET
 
 admin_post_new:
     path:     /admin/post/new
-    defaults: { _controller: "OCWebAgencyBundle:Post:new" }
+    defaults: { _controller: OCWebAgencyBundle:Post:new }
     methods:  [GET, POST]
 
 admin_post_edit:
     path:     /admin/post/edit/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Post:edit" }
+    defaults: { _controller: OCWebAgencyBundle:Post:edit }
     methods:  [GET, POST]
 
 admin_post_delete:
     path:     /admin/post/delete/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Post:delete" }
+    defaults: { _controller: OCWebAgencyBundle:Post:delete }
     methods:  DELETE
 
 #************************* route contact ******************************************************************
 admin_contact_index:
     path:     /admin/contact
-    defaults: { _controller: "OCWebAgencyBundle:Contact:index" }
+    defaults: { _controller: OCWebAgencyBundle:Contact:index }
     methods:  GET
 
 admin_contact_show:
     path:     admin/contact/show/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Contact:show" }
+    defaults: { _controller: OCWebAgencyBundle:Contact:show }
     methods:  GET
 
 admin_contact_new:
     path:     /admin/contact/new
-    defaults: { _controller: "OCWebAgencyBundle:Contact:new" }
+    defaults: { _controller: OCWebAgencyBundle:Contact:new }
     methods:  [GET, POST]
 
 admin_contact_edit:
     path:     admin/contact/edit/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Contact:edit" }
+    defaults: { _controller: OCWebAgencyBundle:Contact:edit }
     methods:  [GET, POST]
 
 admin_contact_delete:
     path:     admin/contact/delete/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Contact:delete" }
+    defaults: { _controller: OCWebAgencyBundle:Contact:delete }
     methods:  DELETE
 
 
@@ -126,37 +126,37 @@ admin_contact_delete:
 
 admin_comment_dashboard_delete:
     path:    /admin/comment/delete/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Admin:deleteComment" }
+    defaults: { _controller: OCWebAgencyBundle:Admin:deleteComment }
 
 #******************** route pour mise a jour isSeen ********************************************
 admin_updateIsSeen:
     path: /admin/comment/update/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Admin:updateIsSeen"}
+    defaults: { _controller: OCWebAgencyBundle:Admin:updateIsSeen}
 
 #************************ route contact ********************************************************
 
 admin_page_index:
     path:     /admin/page
-    defaults: { _controller: "OCWebAgencyBundle:Page:index" }
+    defaults: { _controller: OCWebAgencyBundle:Page:index }
     methods:  GET
 
 admin_page_show:
     path:     /admin/page/show/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Page:show" }
+    defaults: { _controller: OCWebAgencyBundle:Page:show }
     methods:  GET
 
 admin_page_new:
     path:     /admin/page/new
-    defaults: { _controller: "OCWebAgencyBundle:Page:new" }
+    defaults: { _controller: OCWebAgencyBundle:Page:new }
     methods:  [GET, POST]
 
 admin_page_edit:
     path:     /admin/page/edit/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Page:edit" }
+    defaults: { _controller: OCWebAgencyBundle:Page:edit }
     methods:  [GET, POST]
 
 admin_page_delete:
     path:     /admin/page/delete/{id}
-    defaults: { _controller: "OCWebAgencyBundle:Page:delete" }
+    defaults: { _controller: OCWebAgencyBundle:Page:delete }
     methods:  DELETE
 

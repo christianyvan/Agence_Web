@@ -13,9 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 class CommentController extends Controller
 {
 
-
-
-
 	/**
 	 * Lists all comment entities.
 	 *
@@ -33,7 +30,8 @@ class CommentController extends Controller
 
 	/**
 	 * Creates a new comment entity.
-	 *
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
 	public function newAction(Request $request)
 	{
@@ -56,8 +54,8 @@ class CommentController extends Controller
 	}
 
 	/**
-	 * Finds and displays a comment entity.
-	 *
+	 * @param Comment $comment
+	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
 	public function showAction(Comment $comment)
 	{
@@ -70,8 +68,9 @@ class CommentController extends Controller
 	}
 
 	/**
-	 * Displays a form to edit an existing comment entity.
-	 *
+	 * @param Request $request
+	 * @param Comment $comment
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
 	public function editAction(Request $request, Comment $comment)
 	{
@@ -93,8 +92,9 @@ class CommentController extends Controller
 	}
 
 	/**
-	 * Deletes a comment entity.
-	 *
+	 * @param Request $request
+	 * @param Comment $comment
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
 	 */
 	public function deleteAction(Request $request, Comment $comment)
 	{

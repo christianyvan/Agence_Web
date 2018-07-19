@@ -50,7 +50,11 @@ class AppKernel extends Kernel
         return dirname(__DIR__).'/var/logs';
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+	/**
+	 * @param LoaderInterface $loader
+	 * @throws Exception
+	 */
+	public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(function (ContainerBuilder $container) {
             $container->setParameter('container.autowiring.strict_mode', true);

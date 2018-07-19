@@ -9,14 +9,13 @@
 namespace OC\WebAgencyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OC\WebAgencyBundle\Form\CommentType;
-use OC\WebAgencyBundle\Entity\Post;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use OC\WebAgencyBundle\Entity\Comment;
 use Symfony\Component\HttpFoundation\Request;
-//use OC\WebAgencyBundle\Entity\Post;
 
-
-
+/**
+ * Class BlogController
+ * @package OC\WebAgencyBundle\Controller
+ */
 class BlogController extends Controller
 {
 	/**
@@ -33,7 +32,11 @@ class BlogController extends Controller
 		));
 	}
 
-
+	/**
+	 * @param Request $request
+	 * @param $id
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
 	public function postAction(Request $request,$id)
 	{
 		$em = $this->getDoctrine()->getManager();
@@ -103,6 +106,4 @@ class BlogController extends Controller
 
 		return $this->redirectToRoute('oc_web_agency_blog');
 	}
-
-
 }
