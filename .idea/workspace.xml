@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0df5a7e-001e-438a-acfe-8be37aab8ee1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -79,15 +79,26 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            <state relative-caret-position="202">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-536">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+              <folding>
+                <element signature="e#134#191#0#PHP" expanded="true" />
+                <element signature="e#827#851#1#PHP" expanded="true" />
+                <element signature="e#899#926#1#PHP" expanded="true" />
+                <element signature="e#1826#1879#0#PHP" expanded="true" />
+                <element signature="e#2136#2160#1#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="blogFrontEnd.html.twig" pinned="false" current-in-tab="false">
@@ -101,11 +112,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="183" column="36" lean-forward="true" selection-start-line="183" selection-start-column="36" selection-end-line="183" selection-end-column="36" />
+            <state relative-caret-position="204">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+              <folding>
+                <element signature="e#49#81#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,8 +127,8 @@
       <file leaf-file-name="completeArticleFrontEnd.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="198">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#12#28#0#Twig" expanded="true" />
               </folding>
@@ -133,7 +147,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s cache:clear " />
       <command text="s doctrine:generate:crud " />
       <command text="s doctrine:generate:entity OCWebAgencyBundle:Contact" />
       <command text="s cache:clear " />
@@ -158,10 +171,14 @@
       <command text="s doctrine:schema:update  --dump-sql " />
       <command text="s doctrine:schema:update  --force" />
       <command text="s doctrine:generate:crud " />
+      <command text="s cache:clear" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -172,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/post/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Services/ImageUpload.php" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Services/ImageUploadListener.php" />
@@ -214,9 +230,10 @@
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing/page.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing/post.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/post/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig" />
+        <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/PostController.php" />
+        <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" />
       </list>
     </option>
   </component>
@@ -482,12 +499,12 @@
       <workItem from="1531836653834" duration="4984000" />
       <workItem from="1531892993107" duration="30378000" />
       <workItem from="1531985604667" duration="33133000" />
-      <workItem from="1532025675783" duration="4218000" />
+      <workItem from="1532025675783" duration="5879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277509000" />
+    <option name="totallyTimeSpent" value="279170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -495,11 +512,12 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.1187801" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23903178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23903178" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.010590015" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5184591" />
@@ -510,7 +528,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="9" visible="true" weight="0.07544141" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -844,23 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -872,18 +872,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        <state relative-caret-position="198">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="183" column="36" lean-forward="true" selection-start-line="183" selection-start-column="36" selection-end-line="183" selection-end-column="36" />
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding>
+            <element signature="e#49#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-536">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="e#134#191#0#PHP" expanded="true" />
+            <element signature="e#827#851#1#PHP" expanded="true" />
+            <element signature="e#899#926#1#PHP" expanded="true" />
+            <element signature="e#1826#1879#0#PHP" expanded="true" />
+            <element signature="e#2136#2160#1#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

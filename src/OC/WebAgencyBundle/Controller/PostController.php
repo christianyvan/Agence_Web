@@ -4,9 +4,6 @@ namespace OC\WebAgencyBundle\Controller;
 
 use Doctrine\ORM\Mapping as ORM;
 use OC\WebAgencyBundle\Entity\Post;
-use OC\WebAgencyBundle\Entity\Comment;
-use OC\WebAgencyBundle\Form\CommentType;
-use OC\WebAgencyBundle\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -131,95 +128,4 @@ class PostController extends Controller
 			;
 	}
 
-
-	public function postAction(Request $request,$id)
-	{
-		$em = $this->getDoctrine()->getManager();
-
-		$post = $em->getRepository('OCWebAgencyBundle:Post')->find($id);
-
-		$comments = $em->getRepository('OCWebAgencyBundle:Comment')->findBy(array('postId'=>$id,'isSeen' => 1));
-
-
-		if($comments == null){
-			$message = 'Pas de commentaires pour cet article, soyez le premier.';
-		}
-		else
-		{
-			$message = 'Liste des commentaires :';
-		}
-
-
-			$comment = new  Comment;
-
-		$form = $this->createForm(CommentType::class,$comment);
-
-
-		if ($request->isMethod('POST'))
-		{
-			// on hydrate l'entité Comment avec les donnée transmise via la méthode POST
-			// $comment contient maintenant les données du formulaire
-			$form->handleRequest($request);
-
-			if ($form->isSubmitted() && $form->isValid())
-			{
-				$post->addComment($comment);
-				$em->persist($post);
-				$em->persist($comment);
-				$em->flush();
-
-
-				// Redirection vers la page de description de la commande
-				return $this->redirectToRoute('oc_web_agency_completepost',array(
-					'post' => $post,
-					'comments' => $comments,
-
-				));
-			}
-		}
-
-		return $this->render('@OCWebAgency/Blog/completeArticleFrontEnd.html.twig', array(
-			'form' => $form->createView(),
-			'post' => $post,
-			'comments' => $comments,
-			'message' => $message
-		));
-
-	}
-
-	public function addCommentPostAction(Request $request)
-	{
-		$em = $this->getDoctrine()->getManager();
-		$post = $em->getRepository('OCWebAgencyBundle:Post')->find($_POST['submit']);
-		$comment = new  Comment;
-
-		// on récupère le formulaire associé à l'entité comment dans la variable $form
-		//$form = $this->createForm(CommentType::class,$comment);
-
-
-		//if ($request->isMethod('POST'))
-		//{
-			// on hydrate l'entité Comment avec les donnée transmise via la méthode POST
-			// $comment contient maintenant les données du formulaire
-			//$form->handleRequest($request);
-			$comment->setPostId($_POST['submit']);
-			$comment->setAuthor($_POST['author']);
-			$comment->setContent($_POST['comment']);
-			$comment->setEmail($_POST['email']);
-			$comment->setPosts($post);
-
-
-			//if ($form->isSubmitted() && $form->isValid())
-			//{
-				$em->persist($comment);
-				$em->flush();
-				//die('cooucou');
-
-				// Redirection vers la page de description de la commande
-				return $this->redirectToRoute('oc_web_agency_blog');
-		//	}
-		//}
-
-	//	return $this->redirectToRoute('oc_web_agency_blog');
-	}
 }

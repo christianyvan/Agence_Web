@@ -11,18 +11,25 @@ oc_web_agency_admin:
     defaults: {_controller: OCWebAgencyBundle:Admin:admin}
 
 #**************************************************route front end ****************************************
+#oc_web_agency_addcommentpost:
+#    path:    /add_comment
+#    defaults: {_controller: OCWebAgencyBundle:Post:addCommentPost}
 oc_web_agency_addcommentpost:
     path:    /add_comment
-    defaults: {_controller: OCWebAgencyBundle:Post:addCommentPost}
+    defaults: {_controller: OCWebAgencyBundle:Blog:addCommentPost}
 
 
 oc_web_agency_blog:
     path:    /blog
     defaults: {_controller: OCWebAgencyBundle:Blog:blog }
 
+#oc_web_agency_completepost:
+#    path:    /post/{id}
+#    defaults: {_controller: OCWebAgencyBundle:Post:post}
+
 oc_web_agency_completepost:
     path:    /post/{id}
-    defaults: {_controller: OCWebAgencyBundle:Post:post}
+    defaults: {_controller: OCWebAgencyBundle:Blog:post}
 
 oc_web_agency_createcontact:
     path: /contact
