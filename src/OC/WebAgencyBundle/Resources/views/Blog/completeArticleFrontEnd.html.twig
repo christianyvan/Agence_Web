@@ -25,10 +25,8 @@
         <hr>
     </div><!-- end div row -->
 
-<h3>Liste des commentaires</h3>
-    {% if comments|e %}
-        <p>Pas de commentaires pour cet article, soyez le premier.</p>
-    {% endif %}
+<h3>{{ message }}</h3>
+
     <div class="row">
         {%  for comment in comments  %}
 

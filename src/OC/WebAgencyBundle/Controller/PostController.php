@@ -140,10 +140,18 @@ class PostController extends Controller
 
 		$comments = $em->getRepository('OCWebAgencyBundle:Comment')->findBy(array('postId'=>$id,'isSeen' => 1));
 
-		$comment = new  Comment;
-		//$postId = $post->getId();
-		//$comment->setPostId($postId);
-		// on récupère le formulaire associé à l'entité PurchaseOrder dans la variable $form
+
+		if($comments == null){
+			$message = 'Pas de commentaires pour cet article, soyez le premier.';
+		}
+		else
+		{
+			$message = 'Liste des commentaires :';
+		}
+
+
+			$comment = new  Comment;
+
 		$form = $this->createForm(CommentType::class,$comment);
 
 
@@ -164,7 +172,8 @@ class PostController extends Controller
 				// Redirection vers la page de description de la commande
 				return $this->redirectToRoute('oc_web_agency_completepost',array(
 					'post' => $post,
-					'comments' => $comments
+					'comments' => $comments,
+
 				));
 			}
 		}
@@ -172,7 +181,8 @@ class PostController extends Controller
 		return $this->render('@OCWebAgency/Blog/completeArticleFrontEnd.html.twig', array(
 			'form' => $form->createView(),
 			'post' => $post,
-			'comments' => $comments
+			'comments' => $comments,
+			'message' => $message
 		));
 
 	}
