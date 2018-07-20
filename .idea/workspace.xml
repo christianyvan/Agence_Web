@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0df5a7e-001e-438a-acfe-8be37aab8ee1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/WebAgency.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WebAgency.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,8 +69,8 @@
       <file leaf-file-name="BlogController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="356">
+              <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
               <folding>
                 <element signature="e#134#191#0#PHP" expanded="true" />
                 <element signature="e#665#712#0#PHP" expanded="true" />
@@ -87,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blogFrontEnd.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="blogFrontEnd.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+            <state relative-caret-position="236">
+              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
               <folding>
                 <element signature="e#12#28#0#Twig" expanded="true" />
               </folding>
@@ -129,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+            <state relative-caret-position="395">
+              <caret line="92" column="86" selection-start-line="92" selection-start-column="86" selection-end-line="92" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -226,9 +218,9 @@
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/CommentController.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php" />
         <option value="$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
       </list>
     </option>
   </component>
@@ -284,7 +276,7 @@
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="184" />
     <option name="y" value="59" />
     <option name="width" value="675" />
@@ -301,6 +293,17 @@
             <path>
               <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
@@ -357,12 +360,47 @@
             <path>
               <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="OC" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebAgencyBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knplabs" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knplabs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knp-paginator-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knplabs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knp-paginator-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knplabs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knp-paginator-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="WebAgency" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebAgency" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knplabs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="knp-paginator-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Pagination" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -444,12 +482,12 @@
       <workItem from="1531892993107" duration="30378000" />
       <workItem from="1531985604667" duration="33133000" />
       <workItem from="1532025675783" duration="8756000" />
-      <workItem from="1532041035173" duration="4550000" />
+      <workItem from="1532041035173" duration="5735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286597000" />
+    <option name="totallyTimeSpent" value="287782000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -769,13 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/completeArticleFrontEnd.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
@@ -785,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Controller/BlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="356">
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
           <folding>
             <element signature="e#134#191#0#PHP" expanded="true" />
             <element signature="e#665#712#0#PHP" expanded="true" />
@@ -796,11 +827,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/WebAgencyBundle/Resources/views/Blog/blogFrontEnd.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+        <state relative-caret-position="236">
+          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
           <folding>
             <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="92" column="86" selection-start-line="92" selection-start-column="86" selection-end-line="92" selection-end-column="86" />
         </state>
       </provider>
     </entry>
