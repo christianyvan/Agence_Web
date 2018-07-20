@@ -10,6 +10,7 @@ namespace OC\WebAgencyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OC\WebAgencyBundle\Form\CommentType;
 use OC\WebAgencyBundle\Entity\Comment;
+use OC\WebAgencyBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -19,15 +20,25 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
 	/**
+	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function blogAction()
+	public function blogAction(Request $request)
 	{
+
 		$em=$this->getDoctrine()->getManager();
 		$posts=$em->getRepository('OCWebAgencyBundle:Post')->findAll();
 
+		$paginator  = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+			$posts, /* query NOT result */
+			$request->query->getInt('page', 1)/*page number*/,
+			4/*limit per page*/
+		);
+
 		return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
-			'posts'=>$posts,
+			//'posts'=>$posts,
+			'pagination' => $pagination
 
 		));
 	}

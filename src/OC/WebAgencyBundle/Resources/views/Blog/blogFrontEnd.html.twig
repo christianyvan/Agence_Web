@@ -14,26 +14,35 @@
     </div>
     <hr/>
 
+    {# total items count #}
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+
+    <table>
+
+
+
     <div class="container">
 
-        {% for post in posts %}
+        {% for page in pagination %}
         <div class="row">
             <br/>
 
             <div class="container col-md-12">
-                <h4 class="">{{ post.title }}</h4>
+                <h4 class="">{{ page.title }}</h4>
             </div>
 
             <div class="col-md-4 col-sm-12">
-                 <img src="{{ asset('uploads/images/' ~ post.image) }}" class="img-responsive" alt="{{ post.title }}"/>
+                 <img src="{{ asset('uploads/images/' ~ page.image) }}" class="img-responsive" alt="{{ page.title }}"/>
                  <br>
             </div>
             <div>
-                <a class="btn btn-success col-md-2" href="{{ path('oc_web_agency_completepost',{'id': post.id }) }}">Article complet</a>
+                <a class="btn btn-success col-md-2" href="{{ path('oc_web_agency_completepost',{'id': page.id }) }}">Article complet</a>
             </div>
 
             <div class="col-md-8 col-sm-12">
-                    {{ post.content|slice(0,500)|raw }}...
+                    {{ page.content|slice(0,500)|raw }}...
             </div>
 
                 <br/>
@@ -41,7 +50,10 @@
         </div><!-- end div row -->
         {% endfor %}
     </div>
-
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 
 
 {% endblock %}
