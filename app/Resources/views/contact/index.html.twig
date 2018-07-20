@@ -7,46 +7,46 @@
 
 
     <h1>Contacts list</h1>
+    {% for contact in contacts %}
+        <br>
+        <a class="btn btn-success" href="{{ path('admin_contact_show', { 'id': contact.id }) }}">show</a>
+        <a class="btn btn-info" href="{{ path('admin_contact_edit', { 'id': contact.id }) }}">edit</a>
+        <a class="btn btn-success" href="{{ path('admin_contact_new') }}">Create a new contact</a>
+        <br>
+    <div class="table table-responsive">
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td><a href="{{ path('admin_contact_show', { 'id': contact.id }) }}">{{ contact.id }}</a></td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ contact.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <td>{{ contact.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ contact.email }}</td>
+                </tr>
+                <tr>
+                    <th>Object</th>
+                    <td>{{ contact.object }}</td>
+                </tr>
+                <tr>
+                    <th>Message</th>
+                    <td>{{ contact.message }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Lastname</th>
-                <th>Firstname</th>
-                <th>Email</th>
-                <th>Object</th>
-                <th>Message</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contact in contacts %}
-            <tr>
-                <td><a href="{{ path('admin_contact_show', { 'id': contact.id }) }}">{{ contact.id }}</a></td>
-                <td>{{ contact.lastName }}</td>
-                <td>{{ contact.firstName }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.object }}</td>
-                <td>{{ contact.message }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_contact_show', { 'id': contact.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_contact_edit', { 'id': contact.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
         {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_contact_new') }}">Create a new contact</a>
-        </li>
-    </ul>
+
+
+
 {% endblock %}

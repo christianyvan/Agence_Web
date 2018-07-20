@@ -13,4 +13,6 @@ table, th, td {
 
 th{
     background-color: #047d65;
+    width: 10%;
+    text-align: center;
 }

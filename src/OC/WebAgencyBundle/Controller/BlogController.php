@@ -37,8 +37,7 @@ class BlogController extends Controller
 		);
 
 		return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
-			//'posts'=>$posts,
-			'pagination' => $pagination
+			'posts' => $pagination
 
 		));
 	}

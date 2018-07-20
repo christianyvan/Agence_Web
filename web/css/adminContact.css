@@ -15,4 +15,5 @@ table, th, td {
 th{
     background-color: #047d65;
     text-align: center;
+    width: 24%;
 }
