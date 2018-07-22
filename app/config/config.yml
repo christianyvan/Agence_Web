@@ -91,3 +91,8 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'     # twitter_bootstrap_v4_pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+# Configuration MailChimpBundle
+#welp_mailchimp:
+#    api_key: 0ba5c7a6e0d2785fd4bc7abecad8c378-us18
+ #   lists: 3939f72df1

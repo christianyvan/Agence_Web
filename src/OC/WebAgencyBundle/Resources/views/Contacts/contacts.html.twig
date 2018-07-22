@@ -5,9 +5,9 @@
 
 {% block body %}
     {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
-    <div class="container">
+
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-md-5 col-md-offset-1">
                 <h1>Formulaire de contact</h1>
 
                 <div class="alert alert-success">
@@ -23,11 +23,7 @@
                     {% endif %}
                 </div>
 
-
-
-
-
-                {{ form_start(form) }}
+                  {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.lastName) }}
                     {{ form_widget(form.lastName,{'attr':{'class':'form-control'}}) }}
@@ -68,9 +64,12 @@
                     {{ form_end(form) }}
 
             </div>
-        </div>
-    </div>
-    <br>
+            <div class="col-md-5 col-md-offset-1">
+                {% include 'OCWebAgencyBundle:NewsLetter:formNewsLetter.html.twig' %}
+
+            </div>
+        </div><!-- end row -->
+
 
 
 

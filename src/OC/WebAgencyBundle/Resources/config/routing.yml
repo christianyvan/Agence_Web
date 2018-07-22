@@ -160,3 +160,8 @@ admin_page_delete:
     defaults: { _controller: OCWebAgencyBundle:Page:delete }
     methods:  DELETE
 
+#************************ newsletter **********************************************************
+
+oc_web_agency_newsletter:
+    path: /newsletter
+    defaults: {_controller: OCWebAgencyBundle:NewsLetter:formNewsLetter}
