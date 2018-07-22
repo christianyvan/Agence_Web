@@ -162,6 +162,10 @@ admin_page_delete:
 
 #************************ newsletter **********************************************************
 
+oc_web_agency_admin_newsletter:
+        resource: "@OCWebAgencyBundle/Resources/config/routing/newsletter.yml"
+        prefix:   /admin/newsletter
+
 oc_web_agency_newsletter:
     path: /newsletter
     defaults: {_controller: OCWebAgencyBundle:NewsLetter:formNewsLetter}

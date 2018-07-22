@@ -1,0 +1,24 @@
+admin_newsletter_index:
+    path:     /
+    defaults: { _controller: "OCWebAgencyBundle:NewsLetter:index" }
+    methods:  GET
+
+admin_newsletter_show:
+    path:     /{id}/show
+    defaults: { _controller: "OCWebAgencyBundle:NewsLetter:show" }
+    methods:  GET
+
+admin_newsletter_new:
+    path:     /new
+    defaults: { _controller: "OCWebAgencyBundle:NewsLetter:new" }
+    methods:  [GET, POST]
+
+admin_newsletter_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OCWebAgencyBundle:NewsLetter:edit" }
+    methods:  [GET, POST]
+
+admin_newsletter_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OCWebAgencyBundle:NewsLetter:delete" }
+    methods:  DELETE

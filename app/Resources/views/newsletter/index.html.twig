@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Newsletters list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsLetter in newsLetters %}
+            <tr>
+                <td><a href="{{ path('admin_newsletter_show', { 'id': newsLetter.id }) }}">{{ newsLetter.id }}</a></td>
+                <td>{{ newsLetter.name }}</td>
+                <td>{{ newsLetter.email }}</td>
+                <td>{% if newsLetter.date %}{{ newsLetter.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_newsletter_show', { 'id': newsLetter.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_newsletter_edit', { 'id': newsLetter.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_newsletter_new') }}">Create a new newsLetter</a>
+        </li>
+    </ul>
+{% endblock %}
