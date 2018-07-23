@@ -120,6 +120,15 @@ admin_contact_delete:
     defaults: { _controller: OCWebAgencyBundle:Contact:delete }
     methods:  DELETE
 
+admin_contact_reply:
+    path:     admin/contact/reply/{id}
+    defaults: { _controller: OCWebAgencyBundle:Contact:reply }
+
+admin_contact_responsemail:
+    path:     admin/contact/response/{id}
+    defaults: { _controller: OCWebAgencyBundle:Contact:responseMail }
+
+
 
 
 #********************************************** route dashboard *******************************************
@@ -133,7 +142,7 @@ admin_updateIsSeen:
     path: /admin/comment/update/{id}
     defaults: { _controller: OCWebAgencyBundle:Admin:updateIsSeen}
 
-#************************ route contact ********************************************************
+#************************ route page ********************************************************
 
 admin_page_index:
     path:     /admin/page

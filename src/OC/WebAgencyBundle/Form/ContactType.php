@@ -25,9 +25,12 @@ class ContactType extends AbstractType
 			->add('object', TextType::class, array('label'=> 'Sujet'))
 			->add('message', TextareaType::class, array('label'=> 'Message'))
 			->add('date',DateType::class, array('label'=> 'Date'))
+			->add('response',TextareaType::class,array('label'=>'reply','attr' => array(
+				'class' => 'ckeditor')))
 			->add('save', SubmitType::class, array('label'=> 'Envoyer'))
 		;
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

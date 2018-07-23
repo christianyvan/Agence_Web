@@ -162,7 +162,6 @@ class ContactController extends Controller
 	public function sendMailAction($id)
 	{
 
-
 		$contact = $this->getDoctrine()
 			->getManager()
 			->getRepository('OCWebAgencyBundle:Contact')
@@ -187,4 +186,53 @@ class ContactController extends Controller
 
 		return $this->render('OCWebAgencyBundle:Home:index.html.twig');
 	}
+
+	/**
+	 * @param $id
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function replyAction($id){
+		$em = $this->getDoctrine()->getManager();
+		$contact = $em->getRepository('OCWebAgencyBundle:Contact')->find($id);
+		//$email = $contact->getEmail();
+
+		return $this->render('OCWebAgencyBundle:Contacts:replyContact.html.twig',array('contact'=>$contact));
+	}
+
+	public function responseMailAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$contact = $this->getDoctrine()
+			->getManager()
+			->getRepository('OCWebAgencyBundle:Contact')
+			->find($id);
+
+		//if(!empty($_POST['response'])){
+			$response = $_POST['reply'];
+			$contact->setResponse($response);
+			//$em->persist($contact);
+			$em->flush();
+		//}
+
+		// Préparation de l'email avec les informations de la commande
+		$message = \Swift_Message::newInstance()
+			->setSubject('Agence LEON - Réponse suite à votre contact')
+			->setFrom(array('christian.yvan@gmail.com' => "Agence Web LEON"))
+			->setTo($contact->getEmail())
+			->setCharset('utf-8')
+			->setContentType('text/html')
+			->attach(\Swift_Attachment::fromPath('uploads/images/image_1.jpg')->setDisposition('inline'))
+			//->setBody($this->renderView('OCWebAgencyBundle:Contacts:contact.html.twig',array('name' => $name)),'text/html');
+			->setBody($this->renderView('OCWebAgencyBundle:Contacts:responseContact.html.twig', array(
+				'contact'   	  =>$contact
+			)));
+
+		// Envoi du mail
+		$this->get('mailer')
+			->send($message);
+		return $this->redirectToRoute('admin_contact_index');
+		//return $this->render('OCWebAgencyBundle:Home:index.html.twig');
+	}
+
+
 }

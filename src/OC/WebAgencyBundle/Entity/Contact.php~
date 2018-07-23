@@ -3,13 +3,12 @@
 namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
  *
  * @ORM\Table(name="contact")
- * @ORM\Entity(repositoryClass="ContactRepository")
+ * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\ContactRepository")
  */
 class Contact
 {
@@ -57,15 +56,22 @@ class Contact
      */
     private $message;
 
-	/**
-	 * @var \DateTime
-	 * @Assert\DateTime()
-	 * @ORM\Column(name="date", type="datetime")
-	 */
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime",nullable=true)
+     */
     private $date;
 
 	/**
-	 * Contact constructor.
+	 * @var string
+	 *
+	 * @ORM\Column(name="response", type="text",nullable=true)
+	 */
+    private $response;
+
+	/**
+	 * Constructor
 	 */
 	public function __construct()
 	{
@@ -202,5 +208,29 @@ class Contact
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Contact
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

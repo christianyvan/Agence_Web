@@ -13,8 +13,15 @@ class NewsLetterType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('email')->add('date');
-    }/**
+        $builder->add('title')
+				->add('email')
+				->add('date')
+				->add('content')
+
+		;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

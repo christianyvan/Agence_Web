@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/replyContact.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+
+<h3>Répondre a {{ contact.lastName }} {{ contact.firstName }}</h3>
+
+
+<form method="post" action="{{ path('admin_contact_responsemail',{'id': contact.id}) }}">
+    <div class="form-group">
+    <textarea  class="form-control ckeditor" name="reply" id="reply" cols="30" rows="10" placeholder="Répondre"></textarea>
+    </div>
+    <button type="submit" name="response">Envoyer réponse</button>
+</form>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+{% endblock%}

@@ -64,6 +64,13 @@ class Contact
     private $date;
 
 	/**
+	 * @var string
+	 *
+	 * @ORM\Column(name="response", type="text",nullable=true)
+	 */
+    private $response;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -226,5 +233,28 @@ class Contact
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set response
+     *
+     * @param string $response
+     *
+     * @return Contact
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+
+        return $this;
+    }
+
+    /**
+     * Get response
+     *
+     * @return string
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+}
