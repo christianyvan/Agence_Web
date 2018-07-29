@@ -1,0 +1,68 @@
+{% if pageCount > 1 %}
+    <div class="pagination">
+
+        {% if previous is defined %}
+
+                <a class="page disabled" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;</a>
+
+        {% else %}
+
+                <span class="page disabled">&laquo;&nbsp;</span>
+
+        {% endif %}
+
+        {% if startPage > 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+            </li>
+            {% if startPage == 3 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+                </li>
+            {% elseif startPage != 2 %}
+                <li class="disabled">
+                    <span class="page-link">&hellip;</span>
+                </li>
+            {% endif %}
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+
+                    <a class="page" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+
+            {% else %}
+
+                    <span class="page active">{{ page }}</span>
+
+            {% endif %}
+
+        {% endfor %}
+
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+
+                        <span class="page">&hellip;</span>
+
+                {% else %}
+
+                        <a class="page" href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+
+                {% endif %}
+            {% endif %}
+
+                <a class="page" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+
+        {% endif %}
+
+        {% if next is defined %}
+
+                <a class="page" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">&nbsp;&raquo;</a>
+
+        {% else %}
+
+                <span class="page disabled">&nbsp;&raquo;</span>
+        {% endif %}
+    </div>
+{% endif %}

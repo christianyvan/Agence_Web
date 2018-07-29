@@ -1,16 +1,48 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/adminContact.css') }}">
+{% endblock %}
 
 {% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Contact creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+
+        <div class="form-group">
+            {{ form_label(form.lastName) }}
+            {{ form_widget(form.lastName,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.lastName) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.firstName) }}
+            {{ form_widget(form.firstName,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.firstName) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.email) }}
+
+        </div>
+        <div class="form-group">
+            {{ form_label(form.object) }}
+            {{ form_widget(form.object,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.object) }}
+
+        </div>
+    <div class="form-group">
+        {{ form_label(form.message) }}
+        {{ form_widget(form.message,{'attr':{'class':'form-control'}}) }}
+        {{ form_errors(form.message) }}
+
+    </div>
+    <div class="row">
+        <input class="btn btn-success col-md-1" type="submit" value="Create" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_contact_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <a class="btn btn-info col-md-2 col-md-offset-1" href="{{ path('admin_contact_index') }}">Back to the list</a>
+    </div>
 {% endblock %}

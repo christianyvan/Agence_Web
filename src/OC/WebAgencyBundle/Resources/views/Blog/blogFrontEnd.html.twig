@@ -24,7 +24,7 @@
                 <h4 class="">{{ post.title }}</h4>
             </div>
 
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-md-12">
                  <img src="{{ asset('uploads/images/' ~ post.image) }}" class="img-responsive" alt="{{ post.title }}"/>
                  <br>
             </div>
@@ -32,7 +32,7 @@
                 <a class="btn btn-success col-md-2" href="{{ path('oc_web_agency_completepost',{'id': post.id }) }}">Article complet</a>
             </div>
 
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-8 col-md-12">
                     {{ post.content|slice(0,500)|raw }}...
             </div>
 

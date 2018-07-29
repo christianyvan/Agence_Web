@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
+ {% block body %}
+
+
+     <div class="container">
+         <div class="col-md-offset-3" >
+             <h1>Administration du site</h1>
+         </div>
+         <hr>
+         <div class="card col-md-12">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% endif %}
+
+
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

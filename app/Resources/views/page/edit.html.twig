@@ -1,21 +1,23 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Page edit</h1>
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+    <h1>Modifier la page</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn btn-success col-md-2" type="submit" value="Enregistrer" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_page_index') }}">Back to the list</a>
-        </li>
-        <li>
+    <div class="col-md-2 col-md-offset-1">
+        <a class="btn btn-info btn-block" href="javascript:history.back()">Retour</a>
+    </div>
+    <div class="col-md-2 col-md-offset-1">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class=" btn btn-danger btn-block" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
 {% endblock %}

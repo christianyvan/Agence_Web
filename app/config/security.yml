@@ -47,8 +47,13 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-
-            logout:       true
+                # ajout abdel pour rediriger vers la page d'accuel backend après connexion backend + modif logout = true
+                # en logout
+                        # target: /login
+                default_target_path: /admin
+                always_use_default_target_path: true
+            logout:
+                target: /login
             anonymous:    true
 
     access_control:

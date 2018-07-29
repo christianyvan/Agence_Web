@@ -1,0 +1,19 @@
+.leon{
+	display:none !important;
+}
+
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    pointer-events: none;
+    opacity: 1;
+}
+
+.menu-icon{display: none;}
+
+body{background-image: url(img/fond.jpg) !important; background-size: cover ; width: 200%; height: 100%; overflow: hidden;}

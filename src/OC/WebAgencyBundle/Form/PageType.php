@@ -5,6 +5,7 @@ namespace OC\WebAgencyBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class PageType extends AbstractType
 {
@@ -13,7 +14,11 @@ class PageType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('slug')->add('pageNumber')->add('content');
+        $builder
+            ->add('title')
+            ->add('slug')
+            ->add('pageNumber')
+            ->add('content', CKEditorType::class, array('label' => 'Contenu'));
     }/**
      * {@inheritdoc}
      */

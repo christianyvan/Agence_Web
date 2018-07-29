@@ -1,44 +1,94 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Page</h1>
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+<div class="table-responsive">
 
-    <table>
+    <h1>{{ page.title }}</h1>
+
+
+    <div class="table-responsive">
+
+        <table class="table table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ page.id }}</td>
             </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ page.title }}</td>
-            </tr>
+
             <tr>
                 <th>Slug</th>
                 <td>{{ page.slug }}</td>
             </tr>
             <tr>
-                <th>Pagenumber</th>
+                <th>Ordre d'affichage</th>
                 <td>{{ page.pageNumber }}</td>
             </tr>
+            {% if page.content is defined %}
             <tr>
-                <th>Content</th>
+                <th>Contenu</th>
                 <td>{{ page.content }}</td>
             </tr>
+            {% endif %}
         </tbody>
     </table>
+        <div class="row">
+            <div class="col-md-3  btn  btn-success">
+                <a href="{{ path('admin_item_new') }}">Ajouter un article</a>
+            </div>
+            <div class="col-md-3 col-md-offset-1 btn btn-info">
+                <a href="{{ path('admin_page_edit', { 'id': page.id }) }}">Éditer la page</a>
+            </div>
+            <div class="col-md-3 col-md-offset-1 ">
+                {{ form_start(delete_form) }}
+                <input class=" btn-block btn btn-danger" type="submit" value="Supprimer la page">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_page_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('admin_page_edit', { 'id': page.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <h2>Les articles</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Sous-titre</th>
+                <th>Image</th>
+                <th>Date de création</th>
+                <th>Date de mise à jour</th>
+                <th>Aperçu</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in listeItems %}
+                <tr>
+                    <td><a href="{{ path('admin_item_show', { 'id': item.id }) }}">{{ item.id }}</a></td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.subtitle }}</td>
+                    <td>{{ item.imageName }}</td>
+                    <td>{% if item.createdAt %}{{ item.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if item.updatedAt %}{{ item.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ item.slug }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_item_show', { 'id': item.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_item_edit', { 'id': item.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
 {% endblock %}

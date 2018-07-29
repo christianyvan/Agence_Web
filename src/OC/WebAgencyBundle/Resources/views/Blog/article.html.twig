@@ -1,0 +1,102 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/style-spe-blog.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="loader"></div>
+    <div id="section" role="main">
+
+    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+        <div id="section1_1">
+            <div class="section1-content main-content4">
+                <div class="section1-content1" >
+                </div>
+                <div class="section1-content2">
+                    <div class="title-page"><h1>Le blog</h1></div>
+
+                    <div class="newsletter p"><!--newsletter--><a href="#"><h2>s'inscrire à la newsletter</h2></a></div>
+                    <div class="every-articles">
+                        <div class="line-article">
+                            <div class="row">
+                                <br/>
+                                <div class="container col-md-12">
+                                    <h4 class="">{{ post.title }}</h4>
+                                </div>
+
+                                <div class="col-md-4 col-md-12">
+                                    <img src="{{ asset('uploads/images/' ~ post.image) }}" height="100px" width="250px" class="img-responsive" alt="{{ post.title }}"/>
+                                    <br>
+                                </div>
+                                <div class="col-md-8 col-md-12">
+                                    {{ post.content|raw }}
+                                </div>
+
+                                <hr>
+                            </div>
+                            <h3>{{ message }}</h3>
+
+                            <div class="row">
+                                {%  for comment in comments  %}
+
+                                    <br/>
+                                    <div class="container col-md-12">
+                                        <h4>{{ comment.author }}</h4>
+                                    </div>
+                                    <p>{{ comment.content }}</p>
+
+                                {% endfor %}
+                            </div>
+                            <div class="container ">
+                                <h4>Laisser votre commentaire:</h4>
+                                <form method="post" action ={{ path('oc_web_agency_addcommentpost') }} >
+                                    <div class="row">
+                                        <div class="input-field col s12 m6">
+                                            <label for="author">Nom</label>
+                                            <input class="form-control" id="author" name="author" type="text" required="required" >
+                                        </div>
+
+                                        <div >
+                                            <label for="email">Adresse email</label>
+                                            <input  class="form-control" type="email" id="email" name="email" >
+                                        </div>
+
+                                        <div >
+                                            <label for="comment">Votre commentaire</label>
+                                            <textarea  class="form-control" id="comment" name="comment" required="required"></textarea>
+                                        </div>
+                                        <br>
+                                        <div class="col s12">
+
+                                            <button class="btn btn-info" type="submit" name="submit" value={{ post.id }}>  commenter</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+                <form class="searchbar"><!--searchbar-->
+
+                    <input type="search" name="search" placeholder="Rechercher">
+                    <span class="custom-dropdown custom-dropdown--white">
+								<select name="categories" class="custom-dropdown__select custom-dropdown__select--white">
+										<option value="Marketing">Les catégories</option>
+										<option value="Marketing">Marketing</option>
+										<option value="Developpement">Développement</option>
+										<option value="Design">Design</option>
+										<option value="Web_general">Web général</option>
+								</select>
+							</span>
+                    <button name="submit">Valider</button>
+
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

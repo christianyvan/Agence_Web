@@ -155,5 +155,26 @@ class Page
     {
         return $this->content;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="OC\WebAgencyBundle\Entity\Item", mappedBy="page", cascade={"persist"})
+     */
+    private $items;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 }
 

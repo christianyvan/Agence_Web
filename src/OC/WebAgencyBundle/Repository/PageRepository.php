@@ -10,4 +10,47 @@ namespace OC\WebAgencyBundle\Repository;
  */
 class PageRepository extends \Doctrine\ORM\EntityRepository
 {
+    function getItems($page) {
+
+        $items = $this->createQueryBuilder('p')
+            //->leftJoin("i.page", "page")
+            ->where('i.page = :page')
+            ->setParameter('page', $page)
+            ->getQuery()
+       ;
+
+        return $items;
+    }
+
+    public function getPage($slug)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.slug LIKE :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getSingleResult();
+            ;
+    }
+
+    public function menuFrontAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pages = $em->getRepository('OCWebAgencyBundle:Page')->findAll();
+
+        return $this->render('OCWebAgencyBundle:Navigation:frontEnd.html.twig', [
+            'pages' => $pages
+        ]);
+    }
+
+
+    public function menuBackAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pages = $em->getRepository('OCWebAgencyBundle:Page')->findAll();
+
+        return $this->render('OCWebAgencyBundle:Navigation:backEnd.html.twig', [
+            'pages' => $pages
+        ]);
+    }
+
 }

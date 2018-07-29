@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+    <h1><h1>{{ item.page.title }} > {{ item.title }}</></h1>
+
+
+{{ form_start(edit_form) }}
+<div class="row">
+    <div class="col-md-8">
+        {{ form_widget(edit_form.title) }}
+    </div>
+</div>
+<br/>
+ <div class="row">
+    <div class="col-md-8">
+        {{ form_widget(edit_form.subtitle) }}
+    </div>
+ </div>
+ <br/>
+ <div class="row">
+    <div class="col-md-8">
+        {{ form_widget(edit_form.content) }}
+    </div>
+ </div>
+<br/>
+<div class="row">
+    <div class="col-md-4">
+        {{ form_widget(edit_form.imageFile) }}
+    </div>
+    <div class="col-md-4">
+        <img src="/Agence_Web/web{{ vich_uploader_asset(item, 'imageFile') }}" alt="{{item.title}}" height="200" />
+    </div>
+</div>
+<br/>
+ <div class="row">
+    <div class="col-md-8">
+        {{ form_widget(edit_form.page) }}
+    </div>
+
+</div>
+</br>
+<input class="btn btn-success col-md-2"  type="submit" value="Valider" />
+{{ form_end(edit_form) }}
+
+    <div class="col-md-2 col-md-offset-1">
+         <a class="btn btn-info btn-block" href="javascript:history.back()">Retour</a>
+     </div>
+     <div class="col-md-2 col-md-offset-1">
+        {{ form_start(delete_form) }}
+            <input class="btn btn-danger btn-block" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+     </div>
+</div>
+
+
+{% endblock %}

@@ -41,20 +41,22 @@
     {{ form_errors(edit_form.message) }}
 
 </div>
+
+
      <div class="row">
-         <div class="col-md-3">
-            <input type="submit" value="Edit" />
+         <div class="col-md-1 ">
+            <input class="btn btn-success btn-block" type="submit" value="Save" />
          </div>
         {{ form_end(edit_form) }}
-         <div class="col-md-3 col-md-offset-1">
-             <a href="{{ path('admin_contact_index') }}">Back to the list</a>
+         <div class="col-md-2 ">
+             <a class="btn btn-info btn-block" href="{{ path('admin_contact_index') }}">Back to the list</a>
          </div>
 
-         <div class="col-md-3 col-md-offset-1">
+         <div class="col-md-1 ">
             {{ form_start(delete_form) }}
-             <input type="submit" value="Delete">
+             <input type="submit" value="Delete" class="btn btn-danger btn-block">
         {{ form_end(delete_form) }}
          </div>
      </div>
-
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 {% endblock %}

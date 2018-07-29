@@ -7,15 +7,12 @@
  */
 
 namespace OC\WebAgencyBundle\Controller;
+use OC\WebAgencyBundle\Entity\Contact;
 use OC\WebAgencyBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use OC\WebAgencyBundle\Entity\Comment;
 use OC\WebAgencyBundle\Entity\User;
-
-
-
-
 
 
 
@@ -58,6 +55,11 @@ class AdminController extends Controller
 			->getRepository('OCWebAgencyBundle:Post')
 			->findAll();
 
+		// Abdel : On obtient les pages pour fabriquer le menu
+        $pagesMenu = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->findAll();
+
 		// si aucun commentaire associé au post  on lève une exception
 		if ($posts === null) {
 			throw new NotFoundHttpException("Pas de posts ");
@@ -70,7 +72,7 @@ class AdminController extends Controller
 		else $message = "Vous avez des commentaires à valider";
 
 		foreach ($comments as $comment){
-			 $content = nl2br(htmlspecialchars_decode($comment->getContent()));
+			 $content = /*nl2br(htmlspecialchars_decode(*/$comment->getContent()/*))*/;
 			 $comment->setContent($content);
 			 substr($comment->getContent(),0,200);
 		}
@@ -83,6 +85,9 @@ class AdminController extends Controller
 						   ->numberComments();
 		$nbPosts = $em	->getRepository(Post::class)
 			            ->numberPosts();
+		
+		$nbContacts = $em ->getRepository(Contact::class)
+						  ->numberContacts();	            
 
 		return $this->render('OCWebAgencyBundle:Admin:admin.html.twig', array(
 			'comments' => $comments,
@@ -90,7 +95,9 @@ class AdminController extends Controller
 			'message' => $message,
 			'nbAdmins' => $nbAdmins,
 			'nbComments' => $nbComments,
-			'nbPosts' => $nbPosts
+			'nbPosts' => $nbPosts,
+            'pagesMenu' => $pagesMenu,
+            'nbContacts' => $nbContacts
 		));
 	}
 

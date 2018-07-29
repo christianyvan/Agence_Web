@@ -10,6 +10,7 @@ namespace OC\WebAgencyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OC\WebAgencyBundle\Form\CommentType;
 use OC\WebAgencyBundle\Entity\Comment;
+use OC\WebAgencyBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -19,15 +20,31 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
 	/**
+	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function blogAction()
+	public function blogAction(Request $request)
 	{
-		$em=$this->getDoctrine()->getManager();
-		$posts=$em->getRepository('OCWebAgencyBundle:Post')->findAll();
+        // Abdel : on obtient toutes les pages pour le menu
+        $em = $this->getDoctrine()->getManager();
+        $pagesMenu = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->findAll();
 
-		return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
-			'posts'=>$posts,
+        $query=$em->getRepository('OCWebAgencyBundle:Post')->findAll();
+
+        $posts = $this->get('knp_paginator')->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            4
+        );
+        
+		//return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
+        return $this->render('OCWebAgencyBundle:Blog:index.html.twig',array(
+			'posts' => $posts,
+            'pagesMenu' => $pagesMenu,
+            // Ajout Abdel
+            'page' => $request->query->getInt('page', 1)
 
 		));
 	}
@@ -39,7 +56,13 @@ class BlogController extends Controller
 	 */
 	public function postAction(Request $request,$id)
 	{
-		$em = $this->getDoctrine()->getManager();
+        // Ajout Abdel : On obtient toutes les pages pour le menu
+        $em = $this->getDoctrine()->getManager();
+        $pagesMenu = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->findAll();
+
+	    $em = $this->getDoctrine()->getManager();
 		$post = $em->getRepository('OCWebAgencyBundle:Post')->find($id);
 		$comments = $em->getRepository('OCWebAgencyBundle:Comment')->findBy(array('postId'=>$id,'isSeen' => 1));
 
@@ -71,18 +94,21 @@ class BlogController extends Controller
 				$em->flush();
 
 				return $this->redirectToRoute('oc_web_agency_completepost',array(
-					'post' => $post,
+                	'post' => $post,
 					'comments' => $comments,
 
 				));
 			}
 		}
 
-		return $this->render('@OCWebAgency/Blog/completeArticleFrontEnd.html.twig', array(
+		//return $this->render('@OCWebAgency/Blog/completeArticleFrontEnd.html.twig', array(
+        return $this->render('@OCWebAgency/Blog/article.html.twig', array(
 			'form' => $form->createView(),
 			'post' => $post,
 			'comments' => $comments,
-			'message' => $message
+			'message' => $message,
+			// Ajout Abdel
+            'pagesMenu' => $pagesMenu
 		));
 	}
 

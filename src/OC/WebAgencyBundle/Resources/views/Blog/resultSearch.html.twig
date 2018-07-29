@@ -1,0 +1,20 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/style-spe-blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbarFront.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
+
+<h3>{{ message }}</h3>
+
+    {% if search is not null%}
+        {% for post in search %}
+            <div>
+                <p>{{ post.title |raw}}</p>
+                <p>{{ post.content|raw }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

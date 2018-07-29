@@ -8,6 +8,8 @@ imports:
 parameters:
     locale: fr
     images_directory: '%kernel.root_dir%/../web/uploads/images'
+    # Ajout Abdel
+    app.path.product_images: /uploads/images
 framework:
     templating:
         engines: ['twig']
@@ -37,6 +39,10 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    # Ajout Abdel
+    form_themes:
+        - bootstrap_3_layout.html.twig
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -76,3 +82,66 @@ fos_user:
     from_email:
         address: "christian.yvan@gmail.com"  #"%mailer_user%"
         sender_name: "Test fosuser"          #"%mailer_user%"
+
+# Ajout Abdel
+# Stof\DoctrineExtensionsBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+
+# vich/uploader-bundle configuration
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_images:
+            uri_prefix:         '%app.path.product_images%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.product_images%'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+# Ajout Abdel
+services:
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
+
+    twig.extension.intl:
+       class: Twig_Extensions_Extension_Intl
+       tags:
+           - { name: twig.extension }
+# Ajout Abdel           
+fos_ck_editor:
+    #configs:
+        #config:
+            #my_toolbar: my_toolbar_1
+
+        #toolbars:
+            #configs:
+                #my_toolbar_1: [ [ "Source", "-", "Save" ], "/", [ "Anchor" ], "/", [ "Maximize" ] ]
+                #my_toolbar_2: [ [ "Source" ], "/", [ "Anchor" ], "/", [ "Maximize" ] ]
+    configs:
+        my_config_1:
+            toolbar: "my_toolbar_1"
+            #uiColor: "#000000"
+        my_config_2:
+            toolbar: "my_toolbar_2"
+            #uiColor: "#ffffff"
+        my_config_2:
+            toolbar: "my_toolbar_1"
+            #uiColor: "#cccccc"
+    toolbars:
+        configs:
+            my_toolbar_1: [ [ "Source", "-", "Save" ], "/", [ "Maximize" ] ]
+            my_toolbar_2: [ [ "Source" ], "/", [ "Anchor" ], "/", [ "Maximize" ] ]
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: false                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: pagination/bootstrap4_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template

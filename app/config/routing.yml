@@ -1,3 +1,7 @@
+oc_web_agency_item:
+    resource: "@OCWebAgencyBundle/Controller/ItemController.php"
+    type:     annotation
+
 oc_web_agency_contact:
     resource: "@OCWebAgencyBundle/Controller/ContactController.php"
     type:     annotation

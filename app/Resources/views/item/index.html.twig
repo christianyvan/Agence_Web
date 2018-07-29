@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+<h1>Les articles</h1>
+
+<br><br>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Slug</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td><a href="{{ path('admin_item_show', { 'id': item.id }) }}">{{ item.id }}</a></td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.subtitle }}</td>
+                <td>{{ item.content }}</td>
+                <td>{{ item.imageName }}</td>
+                <td>{% if item.createdAt %}{{ item.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if item.updatedAt %}{{ item.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ item.slug }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_item_show', { 'id': item.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_item_edit', { 'id': item.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <ul>
+        <li>
+            <a href="{{ path('admin_item_new') }}">Create a new item</a>
+        </li>
+    </ul>
+
+
+
+
+{% endblock %}

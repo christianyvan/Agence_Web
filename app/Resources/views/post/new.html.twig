@@ -6,6 +6,9 @@
 {% block body %}
     {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
     <h1>Post creation</h1>
+    <br>
+    <a class="btn btn-info" href="{{ path('admin_post_index') }}">Back to the list</a>
+    <br><br>
 
     {{ form_start(form) }}
         <div class="form-group">
@@ -62,7 +65,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_post_index') }}">Back to the list</a>
+
         </li>
     </ul>
 {% endblock %}

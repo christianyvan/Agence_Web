@@ -9,6 +9,14 @@ oc_web_agency_homepage:
 oc_web_agency_admin:
     path:    /admin/
     defaults: {_controller: OCWebAgencyBundle:Admin:admin}
+    
+oc_web_agency_search:
+    path:    /search
+    defaults: {_controller: OCWebAgencyBundle:Post:searchBar}
+
+#oc_web_agency_handlesearch:
+ #   path:    /handle_search
+ #   defaults: {_controller: OCWebAgencyBundle:Post:handleSearch}
 
 #**************************************************route front end ****************************************
 #oc_web_agency_addcommentpost:
@@ -17,7 +25,6 @@ oc_web_agency_admin:
 oc_web_agency_addcommentpost:
     path:    /add_comment
     defaults: {_controller: OCWebAgencyBundle:Blog:addCommentPost}
-
 
 oc_web_agency_blog:
     path:    /blog
@@ -120,6 +127,15 @@ admin_contact_delete:
     defaults: { _controller: OCWebAgencyBundle:Contact:delete }
     methods:  DELETE
 
+admin_contact_reply:
+    path:     admin/contact/reply/{id}
+    defaults: { _controller: OCWebAgencyBundle:Contact:reply }
+
+admin_contact_responsemail:
+    path:     admin/contact/response/{id}
+    defaults: { _controller: OCWebAgencyBundle:Contact:responseMail }
+
+
 
 
 #********************************************** route dashboard *******************************************
@@ -133,7 +149,7 @@ admin_updateIsSeen:
     path: /admin/comment/update/{id}
     defaults: { _controller: OCWebAgencyBundle:Admin:updateIsSeen}
 
-#************************ route contact ********************************************************
+#************************ route page ********************************************************
 
 admin_page_index:
     path:     /admin/page
@@ -142,7 +158,7 @@ admin_page_index:
 
 admin_page_show:
     path:     /admin/page/show/{id}
-    defaults: { _controller: OCWebAgencyBundle:Page:show }
+    defaults: { _controller: OCWebAgencyBundle:Page:showAdmin }
     methods:  GET
 
 admin_page_new:
@@ -160,3 +176,40 @@ admin_page_delete:
     defaults: { _controller: OCWebAgencyBundle:Page:delete }
     methods:  DELETE
 
+oc_web_agency_front_page:
+    path: /page/{slug}
+    defaults: { _controller: OCWebAgencyBundle:Page:showPage }
+    methods: GET
+
+oc_web_agency_back_page:
+    path: /admin/page/show/{slug}
+    methods: GET
+
+
+
+#************************ route item ********************************************************
+
+admin_item_index:
+    path:     /admin/item
+    defaults: { _controller: "OCWebAgencyBundle:Item:index" }
+    methods:  GET
+
+admin_item_show:
+    path:     /admin/item/{id}/show
+    defaults: { _controller: "OCWebAgencyBundle:Item:show" }
+    methods:  GET
+
+admin_item_new:
+    path:     /admin/item/new
+    defaults: { _controller: "OCWebAgencyBundle:Item:new" }
+    methods:  [GET, POST]
+
+admin_item_edit:
+    path:     /admin/item/{id}/edit
+    defaults: { _controller: "OCWebAgencyBundle:Item:edit" }
+    methods:  [GET, POST]
+
+admin_item_delete:
+    path:     /admin/item/{id}/delete
+    defaults: { _controller: "OCWebAgencyBundle:Item:delete" }
+    methods:  DELETE

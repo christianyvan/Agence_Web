@@ -19,15 +19,18 @@ class ContactType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$builder->add('lastName', TextType::class, array('label'=> 'Nom'))
-			->add('firstName', TextType::class, array('label'=> 'Prénom'))
-			->add('email', TextType::class, array('label'=> 'Email'))
-			->add('object', TextType::class, array('label'=> 'Sujet'))
-			->add('message', TextareaType::class, array('label'=> 'Message'))
-			->add('date',DateType::class, array('label'=> 'Date'))
-			->add('save', SubmitType::class, array('label'=> 'Envoyer'))
+		$builder->add('lastName', TextType::class)
+			->add('firstName', TextType::class)
+			->add('email', TextType::class)
+			->add('object', TextType::class)
+			->add('message', TextareaType::class)
+			//->add('date',DateType::class)
+			//->add('response',TextareaType::class,array('label'=>'','attr' => array(
+			//					'class' => 'ckeditor')))
+			//->add('save', SubmitType::class, array('label'=> 'Envoyer'))
 		;
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

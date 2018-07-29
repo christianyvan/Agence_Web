@@ -1,0 +1,80 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/style-spe-blog.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="loader"></div>
+    <div id="section" role="main">
+
+    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+        <div id="section1_1">
+            <div class="section1-content main-content4">
+                <div class="section1-content1" >
+                </div>
+                <div class="section1-content2">
+                    <div class="title-page"><h1>Le blog</h1></div>
+
+                    <div class="newsletter p"><!--newsletter--><a href="#"><h2>s'inscrire à la newsletter</h2></a></div>
+                    <div class="every-articles">
+                        <div class="line-article">
+                            <div class="articles"><!--listing-->
+                                {% for post in posts %}
+                                <div>
+                                    <div>
+
+
+                                    {% if post.image is not null %}
+                                        <img style="position: absolute;height: 100%;width: 100%" src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.title}}"/>{% endif %}<p></p>
+                                        <h3 style="background: #FFFFFF;color: #000000;position: absolute;width: 70%;position: left;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;" >{{ post.title }}</h3>
+                                        <h4 class="hider">{{ post.category }} </h4>
+                                        <p></p><a href="{{ path('oc_web_agency_completepost',{'id': post.id }) }}" class="bouton-plus" style="color: #000000;background: #FFFFFF;">en savoir plus</a>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <!--
+                                <div><h3>Pourquoi le référencement ?</h3><img src=""><h4 class="hider">developpement</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
+
+                                </div>
+                                <div><h3>Pourquoi la stratégie marketing ?</h3><img src=""><h4 class="hider">marketing</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
+
+                                </div>
+                                <div><h3>Le rgpd 2018 kesako ?</h3><img src=""><h4 class="hider">web en general</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
+
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="searchbar"><!--searchbar-->
+
+                    <input type="search" name="search" placeholder="Rechercher">
+                    <span class="custom-dropdown custom-dropdown--white">
+								<select name="categories" class="custom-dropdown__select custom-dropdown__select--white">
+										<option value="Marketing">Les catégories</option>
+										<option value="Marketing">Marketing</option>
+										<option value="Developpement">Développement</option>
+										<option value="Design">Design</option>
+										<option value="Web_general">Web général</option>
+								</select>
+							</span>
+                    <button name="submit">Valider</button>
+
+                </form>
+
+
+                <div id="container">
+                    <div class="navigation">
+                        {{ knp_pagination_render(posts) }}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

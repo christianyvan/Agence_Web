@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/postList.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include '@OCWebAgency/Navigation/backEnd.html.twig' %}
+    <h1>Modifier l'article : <i>{{ item.page.title }} > {{ item.title }}</i></h1>
+
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-success col-md-2" type="submit" value="Valider" />
+    {{ form_end(edit_form) }}
+    {% if item.imageName is not null %}
+        <img src="/Agence_Web/web{{ vich_uploader_asset(item, 'imageFile') }}" alt="{{item.title}}" height="300" />
+    {% endif %}
+
+            <a class="btn  btn-info col-md-2 col-md-offset-1" href="{{ path('admin_item_index') }}">Retour</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn  btn-danger col-md-2 col-md-offset-1" type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+
+{% endblock %}

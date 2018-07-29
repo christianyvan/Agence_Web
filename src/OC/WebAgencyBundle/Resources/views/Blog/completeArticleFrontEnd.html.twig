@@ -1,10 +1,10 @@
-{% extends '::base.html.twig' %}
-
+{% extends 'base.html.twig' %}
 {% block css %}
     <link rel="stylesheet" href="{{ asset('css/post.css') }}">
 {% endblock %}
 {% block body %}
     {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
+
 
     <div class="row">
         <br/>
@@ -12,11 +12,11 @@
             <h4 class="">{{ post.title }}</h4>
         </div>
 
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 col-md-12">
             <img src="{{ asset('uploads/images/' ~ post.image) }}" height="100px" width="250px" class="img-responsive" alt="{{ post.title }}"/>
             <br>
         </div>
-        <div class="col-md-8 col-sm-12">
+        <div class="col-md-8 col-md-12">
             {{ post.content|raw }}
         </div>
         <a class="btn btn-info" href="{{ path('oc_web_agency_blog') }}">Retour au blog</a>

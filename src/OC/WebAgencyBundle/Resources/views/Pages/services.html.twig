@@ -1,0 +1,54 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style-spe-service.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="loader"></div>
+        <div id="section" role="main">
+                {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+            <div id="section1_1">
+                <div class="section1-content main-content2">		<div class="devis nub2"><!--devis--><a href=""><h2>demander votre devis ici</h2></a></div>
+
+                    <div class="section1-content2 fond-pack">
+                        <div class="title-page"><h1>Les services</h1></div>
+                        <div class="pack">
+                            <div class="title-pack"><h2>{{ itemsInfos[0][0]|raw }}</h2></div>
+                            <div class="we-content">
+                                <ul class="détail-pack">
+                                    {{ itemsInfos[2][0]|raw }}
+                                </ul>
+                            </div>
+                            <a class="pack-plus" href="">en savoir plus</a>
+                            <h6 class="détails">{{ itemsInfos[1][0]|raw }}</h6>
+                        </div>
+                        <div class="pack bdrnone">
+                            <div class="title-pack"><h2>{{ itemsInfos[0][1] }}</h2></div>
+                            <div class="we-content">
+                                <ul class="détail-pack">
+                                    {{ itemsInfos[2][1]|raw }}
+                                </ul>
+                            </div>
+                            <a class="pack-plus" href="">en savoir plus</a>
+                            <h6 class="détails">{{ itemsInfos[1][1]|raw }}</h6>
+                        </div>
+                        <div class="pack">
+                            <div class="title-pack"><h2>{{ itemsInfos[0][2]|raw }}</h2></div>
+                            <div class="we-content">
+                                <ul class="détail-pack">
+                                    {{ itemsInfos[2][2]|raw }}
+                                </ul>
+                            </div>
+                            <a class="pack-plus" href="">en savoir plus</a>
+                            <h6 class="détails">{{ itemsInfos[1][2]|raw }}.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <canvas id="noise" class="noise"></canvas>
+    </div>
+
+{% endblock %}

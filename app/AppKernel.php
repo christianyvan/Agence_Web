@@ -19,6 +19,10 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new OC\WebAgencyBundle\OCWebAgencyBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
 		);
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

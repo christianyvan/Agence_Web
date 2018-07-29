@@ -1,0 +1,13 @@
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100% !important;
+    height: 100% !important;
+    
+    pointer-events: none;
+    opacity: 0.1 !important;
+}
+
+.title-page h1{font-size: 70px !important;}

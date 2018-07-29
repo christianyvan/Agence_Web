@@ -1,0 +1,34 @@
+<div class="page">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('oc_web_agency_homepage') }}">Leon</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ path('oc_web_agency_homepage') }}">L'agence</a></li>
+                    <li><a href="#">Les services</a></li>
+                    <li><a href="#">Les références</a></li>
+                    <li><a href="{{ path('oc_web_agency_blog') }}">Le blog</a></li>
+                    <li><a href="{{ path(('oc_web_agency_createcontact')) }}">Nous contacter</a></li>
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=""><span class="glyphicon glyphicon-user"></span> Espace clients</a></li>
+                    <li class="">
+                        <a href="{{ path('fos_user_security_logout') }}" class=""><i class="glyphicon glyphicon-log-out"></i> Disconnection</a>
+                    </li>
+
+                    <li><a href="{{ path("oc_web_agency_admin") }}"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+                    <li id="li_search">{% include 'OCWebAgencyBundle:Blog:searchBar.html.twig' %}</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

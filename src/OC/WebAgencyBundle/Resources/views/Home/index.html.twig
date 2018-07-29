@@ -1,12 +1,28 @@
-{% extends '::base.html.twig' %}
+{% extends '::baseFrontEnd.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-spe.css') }}">
 {% endblock %}
 
 {% block body %}
-    {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
+    <div class="loader"></div>
+    <div role="main" class="main-content" id="main">
 
-    <h1>Page d'accueil</h1>
+        <div class="logo">
+            <h1>LEON</h1>
+            <span>
+            <h5>agence web &nbsp; </h5>
+            <div class="rd r"></div>
+            <div class="rd b"></div>
+            <div class="rd v"></div>
+        </span>
+            <div class="discover"><!--newsletter--><a href="{{ path('oc_web_agency_front_page', {slug: 'l-agence'}) }}"><h2>voir le site</h2></a></div>
+        </div>
+    </div>
+    </div>
 
 
+
+
+    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+    <canvas id="noise" class="noise"></canvas>
 {% endblock %}

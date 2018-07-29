@@ -3,6 +3,7 @@
 namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -59,9 +60,23 @@ class Contact
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime",nullable=true)
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
+	/**
+	 * @var integer
+	 *
+	 * @ORM\Column(name="response_status", type="integer")
+	 */
+    private $responseStatus;
+
+	/**
+	 * ORM\OneToOne (targetEntity="OC\WebAgencyBundle\Entity\ResponseContact",cascade={"persist","remove"})
+	 *
+	 * Assert\Valid()
+	 */
+	//private $responseContact;
 
 	/**
 	 * Constructor
@@ -69,6 +84,7 @@ class Contact
 	public function __construct()
 	{
 		$this->date = new \DateTime('NOW');
+		$this->responseStatus = 0;
 	}
 
 
@@ -226,5 +242,53 @@ class Contact
     {
         return $this->date;
     }
-}
 
+
+   /**
+     * Set responseStatus
+     *
+     * @param integer $responseStatus
+     *
+     * @return Contact
+     */
+    public function setResponseStatus($responseStatus)
+    {
+        $this->responseStatus = $responseStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get responseStatus
+     *
+     * @return boolean
+     */
+    public function getResponseStatus()
+    {
+        return $this->responseStatus;
+    }
+
+    /**
+     * Set responseContact
+     *
+     * param \OC\WebAgencyBundle\Entity\ResponseContact $responseContact
+     *
+     * return Contact
+     */
+  /*  public function setResponseContact(\OC\WebAgencyBundle\Entity\ResponseContact $responseContact = null)
+    {
+        $this->responseContact = $responseContact;
+
+        return $this;
+    }*/
+
+    /**
+     * Get responseContact
+     *
+     * return \OC\WebAgencyBundle\Entity\ResponseContact
+     */
+   /* public function getResponseContact()
+    {
+        return $this->responseContact;
+    }*/
+}

@@ -1,0 +1,18 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="loader"></div>
+    <div role="main" class="main-content" id="main">
+        <div class="logo">
+            <h1>REFERENCES</h1>
+            <span><h5>agence web &nbsp; </h5><div class="rd r"></div><div class="rd b"></div><div class="rd v"></div></span>
+        </div>
+        <canvas id="noise" class="noise"></canvas>
+    </div>
+
+    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+
+{% endblock %}

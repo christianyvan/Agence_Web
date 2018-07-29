@@ -13,28 +13,41 @@
                 <ul class="nav navbar-nav ">
 
                     <li class="">
-                        <a href="{{ path('oc_web_agency_homepage') }}"><i class="glyphicon glyphicon-home"></i> The agency</a>
+                        <a href="{{ path('oc_web_agency_homepage') }}"><i class="glyphicon glyphicon-home"></i> Aller au site</a>
                     </li>
-                    <li class="">
-                        <a href="{{ path('fos_user_security_logout') }}" class=""><i class="glyphicon glyphicon-log-out"></i> Disconnection</a>
-                    </li>
-
+					
                     <li class="">
                         <a href="{{ path('oc_web_agency_admin') }}"  ><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
                     </li>
-
-
                     <li class="">
-                        <a href=""><i class="glyphicon glyphicon-th-list"></i> Gestion users</a>
+
+                        <button style="background: #222;color: #9d9d9d;margin-top: 9px;border: 0px;border-radius: 0px;" class="btn btn-dark" type="button" data-toggle="dropdown">
+                            Gestion des pages <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+
+                            {% for Page in pagesMenu %}
+                                <li class="dropdown-item">
+                                    <a href="{{ path('oc_web_agency_back_page', {slug: Page.id}) }}">{{ Page.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </li>
+                    <li class="">
+                        <a href="{{ path('admin_post_index') }}"><i class="glyphicon glyphicon-th-list"></i> Gestion du blog</a>
                     </li>
 
-
                     <li class="">
-                        <a href="{{ path('admin_post_index') }}"><i class="glyphicon glyphicon-th-list"></i> Gestion posts</a>
+                        <a href="{{ path('admin_contact_index') }}"><i class="glyphicon glyphicon-th-list"></i> Gestion des contacts</a>
                     </li>
 
                     <li class="">
-                        <a href="{{ path('admin_contact_index') }}"><i class="glyphicon glyphicon-th-list"></i> Gestion contacts</a>
+                        <a href=""><i class="glyphicon glyphicon-th-list"></i> Gestion des users</a>
+                    </li>
+
+                    <li class="">
+                        <a href="{{ path('fos_user_security_logout') }}" class=""><i class="glyphicon glyphicon-log-out"></i> Disconnection</a>
                     </li>
                 </ul>
             </div>

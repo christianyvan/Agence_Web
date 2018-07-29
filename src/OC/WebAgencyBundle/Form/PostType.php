@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\HttpFoundation\File\File;
 
 class PostType extends AbstractType
 {
@@ -24,8 +26,9 @@ class PostType extends AbstractType
 				->add('content',TextareaType::class)
 				->add('category',TextType::class)
 				->add('email',EmailType::class)
-				->add('image',FileType::class, array('data_class' => null,'label' => 'Image(JPG)'))
-				->add('date',DateType::class)
+				//->add('image',FileType::class, array('data_class' => null,'label' => 'Image(JPG)'))
+                ->add('imageFile', VichImageType::class, ['required' => false, 'label' => 'Image'])
+                ->add('date',DateType::class)
 				->add('isPosted',ChoiceType::class,array(
 					'label' => 'Published',
 					'choices' => array(
