@@ -45,7 +45,13 @@ class PostController extends Controller
 	 */
 	public function newAction(Request $request)
 	{
-		$post = new Post();
+        // Ajout Abdel : On obtient toutes les pages pour le menu
+        $em = $this->getDoctrine()->getManager();
+        $pagesMenu = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->findAll();
+
+	    $post = new Post();
 		$form = $this->createForm('OC\WebAgencyBundle\Form\PostType', $post);
 		$form->handleRequest($request);
 
@@ -60,6 +66,7 @@ class PostController extends Controller
 		return $this->render('post/new.html.twig', array(
 			'post' => $post,
 			'form' => $form->createView(),
+            'pagesMenu' => $pagesMenu
 		));
 	}
 

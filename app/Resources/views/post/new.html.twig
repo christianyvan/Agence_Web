@@ -36,11 +36,15 @@
 
         </div>
 
-        <div class="form-group">
-            {{ form_label(form.image) }}
-            {{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
-            {{ form_errors(form.image) }}
-        </div>
+
+
+    <div class="form-group">
+        {{ form_row(form.imageFile) }}
+    </div>
+    <div class="form-group">
+        <img src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.name}}" height="300" />
+    </div>
+
         <div class="form-group">
             {{ form_label(form.date) }}
             {{ form_widget(form.date,{'attr':{'class':'form-control'}}) }}
