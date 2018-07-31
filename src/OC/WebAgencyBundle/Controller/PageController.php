@@ -120,6 +120,20 @@ class PageController extends Controller
             ));
         }
 
+		if (stripos($slug, 'tchat') !== FALSE)
+		{
+			// on récupère les infos des items
+			//$itemsInfos = $em
+			//	->getRepository('OCWebAgencyBundle:item')
+			//	->itemInfos($listItems);
+
+			return $this->render('OCWebAgencyBundle:Pages:tchat.html.twig', array(
+				'page' => $page,
+				//'listItems' => $listItems,
+				//'itemsInfos'=> $itemsInfos,
+			));
+		}
+
     }
 
     /**

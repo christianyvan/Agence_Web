@@ -1,0 +1,28 @@
+{% extends '::baseFrontEnd.html.twig' %}
+{% block css %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/tchat.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-fixed-top">
+    <div class="container container-fluid ">
+        <a class="app-name" href="">Tchat</a>
+        <span class="menu">
+             <a class="col-md-offset-1" href="">Membres</a>
+             <a class="col-md-offset-1" href="">Déconnexion</a>
+             <a class="col-md-offset-1" href="">S'inscrire</a>
+             <a class="col-md-offset-1" href="">Se connecter</a>
+            {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+        </span>
+    </div>
+</nav>
+
+
+    <h2>Bienvenue sur notre chat, bonne discussion.</h2>
+
+
+
+
+
+{% endblock %}
