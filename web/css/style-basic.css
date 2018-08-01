@@ -1,4 +1,4 @@
-body{background-image: url(img/lyon.jpg) ; background-size: cover ; width: 200%; height: 100%; overflow: hidden;}
+body{background-image: url(img/lyon.jpg) ; background-size: cover ; width: 200%; height: 100%; overflow: auto;}
 
 #section1_1{width: 50% ; height: 55vw ; background: rgba(0,0,0,0.8);  }
 

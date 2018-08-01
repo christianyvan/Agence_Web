@@ -115,7 +115,7 @@ class BlogController extends Controller
 	/**
 	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
 	 */
-	public function addCommentPostAction()
+	public function addCommentPostAction(Request $request)
 	{
 		$em = $this->getDoctrine()->getManager();
 		$post = $em->getRepository('OCWebAgencyBundle:Post')->find($_POST['submit']);
@@ -128,8 +128,10 @@ class BlogController extends Controller
 		$comment->setPosts($post);
 
 		$em->persist($comment);
+		// Ajout Abdel le 01/08
+        $request->getSession()->getFlashBag()->add('comment_ok', 'Votre commentaire est envoyé. Il sera visible après la validation du webmaster');
 		$em->flush();
 
-		return $this->redirectToRoute('oc_web_agency_blog');
+		return $this->redirectToRoute('oc_web_agency_completepost',array('id' => $post->getId()));
 	}
 }

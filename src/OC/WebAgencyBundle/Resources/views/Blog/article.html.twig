@@ -4,19 +4,59 @@
 {% endblock %}
 
 {% block body %}
-    <div class="loader"></div>
-    <div id="section" role="main">
-
-        {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+    <style>
+       /* .section1-content3{background-image: url(img/fond-blog.jpg) !important; opacity: 0.05;background: rgba(100,221,23 ,1);}*/
+        .section1-content3 {
+            background-image: url(img/fond-blog.jpg) !important; opacity: 1.26;
+            background: rgba(100,221,23 ,1);
+            top: 0;
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 25%;
+            left: 0%;
+            overflow:auto;
+        }
+       .section1-content4 {
+           background-image: url(img/fond-blog.jpg) !important; opacity: 1.26;
+           background: rgba(100,221,23 ,1);
+           top: 0;
+           width: 100%;
+           height: auto;
+           position: relative;
+           top: 25%;
+           left: 0%;
+           overflow:auto;
+       }
+        #section1_1 {
+            background: rgba(100,221,23 ,1);
+        }
+       .h3, h3 {
+           color:#FFFFFF;
+       }
+       .content-item h2 {
+           color:#FFFFFF;
+       }
+       .section1-content1 {
+           height: auto;
+       }
+        .section1-content4 input,textarea {
+            margin-bottom: 5px;
+        }
+        .one-item h4 {
+            color: #FFFFFF;
+            font-size: 2em;
+        }
+    </style>
+<div class="loader"></div>
+<div id="section" role="main">
+    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
         <div id="section1_1">
             <div class="section1-content main-content4">
-                <div class="section1-content1" >
-
-                </div>
+                <div class="section1-content1" ></div>
                 <div class="section1-content2">
                     <div class="title-page"><h1>Le blog</h1></div>
                     <form class="searchbar"><!--searchbar-->
-
                         <input type="search" name="search" placeholder="Rechercher">
                         <span class="custom-dropdown custom-dropdown--white">
 								<select name="categories" class="custom-dropdown__select custom-dropdown__select--white">
@@ -28,22 +68,49 @@
 								</select>
 							</span>
                         <button name="submit">Valider</button>
-
                     </form>
                     <div class="newsletter p"><!--newsletter--><a href="#"><h2>s'inscrire à la newsletter</h2></a></div>
-                    <div class="one-item">
-                        <h3>{{ post.title }}</h3>
-                        <div class="content-item"> {% if post.image is not null %}
-                                <img class="one-item-img" src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.title}}"/>{% endif %}{{ post.content|raw }}
-                         <div>
+                </div>
+             </div>
+            <div class="section1-content3">
+                <div class="one-item">
+                    {# On affiche tous les messages flash dont le nom est « billetsmax » #}
+                    {% for message in app.session.flashbag.get('comment_ok') %}
+                        <h4>{{ message }}</h4>
+                    {% endfor %}
+                    <h3>{{ post.title }}</h3>
 
-                     </div>
+                    <div class="content-item"> {% if post.image is not null %}
+                            <img class="one-item-img" src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.title}}"/>{% endif %}{{ post.content|raw }}
+                     <div>
+                     <div class="content-item">
+                          <h2>{{ message }}</h2>
+                       </div>
+                       {%  for comment in comments  %}
+                       <div class="content-item">
+                           <h4>{{ comment.author }}</h4>
+                           <p>{{ comment.content }}</p>
+                       </div>
+                       {% endfor %}
 
-                 </div>
+                  </div>
+            </div>
+             <div class="section1-content4">
+                    <div class="content-item">
+                        <h2>Laisser votre commentaire :</h2>
 
-        </div>
+                        <form method="post" action ={{ path('oc_web_agency_addcommentpost') }} >
+                            <input placeholder="Nom" class="form-control" id="author" name="author" type="text" required="required" >
+                            <input  placeholder="Adresse email"  class="form-control" type="email" id="email" name="email" >
+                            <textarea  placeholder="Votre commentaire" class="form-control" id="comment" name="comment" required="required"></textarea>
+                            <button class="btn btn-success" type="submit" name="submit" value={{ post.id }}>Commenter</button>
+                        </form>
+                    </div>
+             </div>
 
-    </div>
-    </div>
+         </div>
+
+</div>
+
 
 {% endblock %}
