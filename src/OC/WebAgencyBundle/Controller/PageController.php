@@ -112,6 +112,8 @@ class PageController extends Controller
             $itemsInfos = $em
                 ->getRepository('OCWebAgencyBundle:item')
                 ->itemInfos($listItems);
+            //dump($listItems);
+            //exit;
 
             return $this->render('OCWebAgencyBundle:Pages:references.html.twig', array(
                 'page' => $page,

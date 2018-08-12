@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+
+     {{ form_widget(form.lastName) }}
+    {{ form_errors(form.lastName) }}
+
+    {{ form_widget(form.firstName) }}
+    {{ form_errors(form.firstName) }}
+
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+
+{{ form_end(form) }}
+
+{% for message in app.session.flashbag.get('newsletter') %}
+    <h3>{{ message }}</h3>
+{% endfor %}

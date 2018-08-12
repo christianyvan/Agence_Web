@@ -36,7 +36,9 @@
             </tr>
             <tr>
                 <th>Category</th>
-                <td>{{ post.category }}</td>
+                {% if post.category is not null %}
+                    <td>{{ post.category.name }}</td>
+                {% endif %}
             </tr>
             <tr>
                  <th>Email</th>

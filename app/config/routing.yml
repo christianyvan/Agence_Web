@@ -25,3 +25,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+oc_mailchimp_webhook:
+    resource: "@WelpMailchimpBundle/Resources/config/routing.yml"
+    prefix:   /mailchimp

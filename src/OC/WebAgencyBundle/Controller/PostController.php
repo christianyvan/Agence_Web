@@ -32,6 +32,7 @@ class PostController extends Controller
 
 		$posts = $em->getRepository('OCWebAgencyBundle:Post')->findAll();
 
+
 		return $this->render('post/index.html.twig', array(
 			'posts' => $posts,
             // Ajout Abdel : Pages pour le menu
@@ -107,6 +108,8 @@ class PostController extends Controller
             ->findAll();
 	    $deleteForm = $this->createDeleteForm($post);
 		$editForm = $this->createForm('OC\WebAgencyBundle\Form\PostType', $post);
+		//dump($post);
+		//exit;
 		$editForm->handleRequest($request);
 
 		if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -173,39 +176,40 @@ class PostController extends Controller
                 ->findAll();
 
 		    $word=$_GET["q"];
-			$length=strlen($word);
-			if ($length >= 3)
-			{
-				$em=$this->getDoctrine()->getManager();
-				$search=$em->getRepository(Post::class)->findLikeWord($word);
+		    // Abdel : recherche par catérorie de post
+		    $category= $_GET['c'];
 
-				if($search != null){
-					$message = "Voici les résultats de votre recherche";
-					return $this->render('OCWebAgencyBundle:Blog:resultSearch.html.twig',array(
-						'search'=>$search,
-						'message' => $message,
-                        'pagesMenu' => $pagesMenu
+				$em=$this->getDoctrine()->getManager();
+				// Abdel : on récupère le array des résultats et on ajoute la pagination
+                $query=$em->getRepository(Post::class)->findLikeWord($word,$category);
+
+                $posts = $this->get('knp_paginator')->paginate(
+                    $query,
+                    $request->query->getInt('page', 1),
+                    4
+                );
+
+				if(!empty($query)){
+				    $request->getSession()->getFlashBag()->add('avert-message', 'Voici les résultats de votre recherche');
+					return $this->render('OCWebAgencyBundle:Blog:index.html.twig',array(
+						'posts'=>$posts,
+                        'pagesMenu' => $pagesMenu,
+                        'page' => $request->query->getInt('page', 1)
 					));
 				}
 				else
 				{
-					$message = "Pas de résultat pour votre recherche";
-					return $this->render('OCWebAgencyBundle:Blog:resultSearch.html.twig',array(
-						'search'=>null,
-						'message' => $message,
-                        'pagesMenu' => $pagesMenu
+				    //$message = "Pas de résultat pour votre recherche";
+                    $request->getSession()->getFlashBag()->add('avert-message', 'Pas de résultat pour votre recherche');
+					return $this->render('OCWebAgencyBundle:Blog:index.html.twig',array(
+                        'posts'=>$posts,
+					    'search'=>null,
+                        'pagesMenu' => $pagesMenu,
+                        'page' => $request->query->getInt('page', 1)
+
 					));
 				}
-			}
-			else
-			{
-				$message = "Le mot cherché doit avoir  au moins 3 caractères.";
-				return $this->render('OCWebAgencyBundle:Blog:resultSearch.html.twig',array(
-					'message'=>$message,
-					'search' => null,
-                    'pagesMenu' => $pagesMenu
-				));
-			}
+
 		}
 
 		else {

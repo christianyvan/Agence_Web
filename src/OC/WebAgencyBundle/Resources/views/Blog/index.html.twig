@@ -1,6 +1,47 @@
 {% extends '::baseFrontEnd.html.twig' %}
 {% block css %}
     <link rel="stylesheet" href="{{ asset('css/style-spe-blog.css') }}">
+    <style>
+        * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .item {
+            position: relative;
+            border: 0px solid #333;
+            margin: 0%;
+            overflow: hidden;
+            width: 100%;
+            height: 250px;
+        }
+        .item img {
+            max-width: 100%;
+
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        .item:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .articles div h4 {
+            top: 78%;
+        }
+
+        .message-avert {
+            margin-top: -390px;
+            margin-left: 71px;
+        }
+
+
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -15,53 +56,51 @@
                 <div class="section1-content2">
                     <div class="title-page"><h1>Le blog</h1></div>
 
-                    <div class="newsletter p"><!--newsletter--><a href="#"><h2>s'inscrire à la newsletter</h2></a></div>
+                    <div class="newsletter">
+                        <p>
+
+                        </p>
+                    </div>
+
                     <div class="every-articles">
+
                         <div class="line-article">
-                            <div class="articles"><!--listing-->
+
+                            <div class="message-avert">
+                                {# On affiche tous les messages flash #}
+                                {% for message in app.session.flashbag.get('avert-message') %}
+                                    <h3>{{ message }}</h3>
+                                {% endfor %}
+                            </div>
+
+                            <div class="articles">
+
                                 {% for post in posts %}
-                                <div>
-                                    <div>
-                                    {% if post.image is not null %}
-                                        <img style="position: absolute;height: 100%;width: 100%" src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.title}}"/>{% endif %}<p></p>
+                                    <div class="item">
+                                        {% if post.image is not null %}
+
+                                            <img style="position: absolute;height: 100%;width:100%" src="/Agence_Web/web{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{post.title}}"/>
+
+                                        {% endif %}
                                         <h3 style="background: #FFFFFF;color: #000000;position: absolute;width: 70%;position: left;padding-top: 5px;padding-bottom: 5px;padding-left: 5px;" >{{ post.title }}</h3>
-                                        <h4 class="hider">{{ post.category }} </h4>
-                                        <p></p><a href="{{ path('oc_web_agency_completepost',{'id': post.id }) }}" class="bouton-plus" style="color: #000000;background: #FFFFFF;">en savoir plus</a>
+                                        {% if post.category is not null %}
+                                            <h4 class="hider">{{ post.category.name }}</h4>
+                                        {% endif %}
+                                        <a href="{{ path('oc_web_agency_completepost',{'id': post.id }) }}" class="bouton-plus" style="color: #000000;background: #FFFFFF;">en savoir plus</a>
 
                                     </div>
-                                </div>
                                 {% endfor %}
-                                <!--
-                                <div><h3>Pourquoi le référencement ?</h3><img src=""><h4 class="hider">developpement</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
 
-                                </div>
-                                <div><h3>Pourquoi la stratégie marketing ?</h3><img src=""><h4 class="hider">marketing</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
 
-                                </div>
-                                <div><h3>Le rgpd 2018 kesako ?</h3><img src=""><h4 class="hider">web en general</h4><p></p><a href="" class="bouton-plus">en savoir plus</a>
-
-                                </div>
-                                -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <form class="searchbar"><!--searchbar-->
 
-                    <input type="search" name="search" placeholder="Rechercher">
-                    <span class="custom-dropdown custom-dropdown--white">
-								<select name="categories" class="custom-dropdown__select custom-dropdown__select--white">
-										<option value="Marketing">Les catégories</option>
-										<option value="Marketing">Marketing</option>
-										<option value="Developpement">Développement</option>
-										<option value="Design">Design</option>
-										<option value="Web_general">Web général</option>
-								</select>
-							</span>
-                    <button name="submit">Valider</button>
 
-                </form>
+                {{ include("OCWebAgencyBundle:Blog:searchBarBlog.html.twig") }}
 
+                <div class="newsletter p"><a href="{{ path('oc_web_agency_newsletter') }}"><h2>s'inscrire à la newsletter</h2></a></div>
 
                 <div id="container">
                     <div class="navigation">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b996c640010f1e4e5c92ed15397e7cb6",
+    "content-hash": "46e4ac593aff195706297b656d773928",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -943,6 +943,49 @@
                 "orm"
             ],
             "time": "2017-12-17T02:57:51+00:00"
+        },
+        {
+            "name": "drewm/mailchimp-api",
+            "version": "v2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drewm/mailchimp-api.git",
+                "reference": "f532fa26cd6e7d17c9ba40a757d8c6bfee47dace"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drewm/mailchimp-api/zipball/f532fa26cd6e7d17c9ba40a757d8c6bfee47dace",
+                "reference": "f532fa26cd6e7d17c9ba40a757d8c6bfee47dace",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.0.*",
+                "vlucas/phpdotenv": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DrewM\\MailChimp\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Drew McLellan",
+                    "email": "drew.mclellan@gmail.com",
+                    "homepage": "http://allinthehead.com/"
+                }
+            ],
+            "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper",
+            "homepage": "https://github.com/drewm/mailchimp-api",
+            "time": "2018-02-16T15:31:05+00:00"
         },
         {
             "name": "fig/link-util",
@@ -3051,6 +3094,57 @@
                 "upload"
             ],
             "time": "2017-07-11T09:11:07+00:00"
+        },
+        {
+            "name": "welp/mailchimp-bundle",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/welpdev/mailchimp-bundle.git",
+                "reference": "0cfe337ebed64089e8153ae0785a775f5d3f2dc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/welpdev/mailchimp-bundle/zipball/0cfe337ebed64089e8153ae0785a775f5d3f2dc3",
+                "reference": "0cfe337ebed64089e8153ae0785a775f5d3f2dc3",
+                "shasum": ""
+            },
+            "require": {
+                "drewm/mailchimp-api": "^2.2",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2@dev",
+                "phpunit/phpunit": "~5",
+                "symfony/symfony": ">=2.7"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Welp\\MailchimpBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Titouan BENOIT",
+                    "email": "titouan@welp.today"
+                }
+            ],
+            "description": "MailChimp API V3 Symfony Bundle",
+            "homepage": "https://github.com/welpdev/mailchimp-bundle",
+            "keywords": [
+                "api",
+                "mailchimp",
+                "subscriber",
+                "symfony",
+                "user",
+                "v3"
+            ],
+            "time": "2018-03-12T12:10:32+00:00"
         }
     ],
     "packages-dev": [

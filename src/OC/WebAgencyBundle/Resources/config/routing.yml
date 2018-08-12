@@ -213,3 +213,38 @@ admin_item_delete:
     path:     /admin/item/{id}/delete
     defaults: { _controller: "OCWebAgencyBundle:Item:delete" }
     methods:  DELETE
+
+#***************************** route newsLetter *******************************************
+
+oc_web_agency_newsletter:
+    path: /newsletter
+    defaults: {_controller: OCWebAgencyBundle:Newsletter:newUser}
+
+#***************************** route post category  *******************************************
+
+admin_category_index:
+    path:     /admin/category
+    defaults: { _controller: "OCWebAgencyBundle:Category:index" }
+    methods:  GET
+
+admin_category_show:
+    path:     /admin/category/{id}/show
+    defaults: { _controller: "OCWebAgencyBundle:Category:show" }
+    methods:  GET
+
+admin_category_new:
+    path:     /admin/category/new
+    defaults: { _controller: "OCWebAgencyBundle:Category:new" }
+    methods:  [GET, POST]
+
+admin_category_edit:
+    path:     /admin/category/{id}/edit
+    defaults: { _controller: "OCWebAgencyBundle:Category:edit" }
+    methods:  [GET, POST]
+
+admin_category_delete:
+    path:     /admin/category/{id}/delete
+    defaults: { _controller: "OCWebAgencyBundle:Category:delete" }
+    methods:  DELETE
+
+

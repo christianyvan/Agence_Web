@@ -429,9 +429,9 @@ input:focus,select:focus, button:focus {outline: none !important;}
 
 .line-article{width: 100%;display: flex;justify-content: center;flex-direction: column; height: 100%;position: relative;}
 
-.articles {position:absolute; top:30%; left:50%; transform: translateX(-50%);width: 90%; height:250px;display: flex;justify-content: space-between;cursor: pointer;}
+.articles {position:absolute; top:30%; left:50%; transform: translateX(-50%);width: 90%; height:250px;display: flex;/*justify-content: space-between;*/cursor: pointer;}
 
-.articles div {width: 100%;background: rgba(0,0,0,0.2);position: relative;display: flex;justify-content: flex-end;height: 250px;}
+.articles div {max-width: 25%;background: rgba(0,0,0,0.2);position: relative;display: flex;justify-content: flex-end;height: 250px;}
 
 .articles div:nth-child(1), .articles div:nth-child(2), .articles div:nth-child(3){margin-right:4px; }
 
@@ -439,7 +439,9 @@ input:focus,select:focus, button:focus {outline: none !important;}
 
 .articles div h4{ padding: 15px 20px ; font-size: 16px; text-align: right;color: #000; text-transform: uppercase;font-weight: bold;width: 80%;background: rgba(255,255,255,1); position: absolute;top: 85%;}
 
-.articles div:nth-child(1):hover, .articles div:nth-child(2):hover, .articles div:nth-child(3):hover, .articles div:nth-child(4):hover{height: 400px;transition-duration: 1s;}
+/** Abdel : pour désactiver le zoom **/
+/*.articles div:nth-child(1):hover, .articles div:nth-child(2):hover, .articles div:nth-child(3):hover, .articles div:nth-child(4):hover{height: 400px;transition-duration: 1s;}*/
+
 .articles div:nth-child(1):hover .hider{display: none;}.articles div:nth-child(2):hover .hider{display: none;}.articles div:nth-child(3):hover .hider{display: none;}.articles div:nth-child(4):hover .hider{display: none;}
 
 .bouton-plus{position: absolute;left: 50%; transform: translateX(-50%); bottom: 10%;color: #fff; padding: 10px; border: 1px solid #fff;border-style: dashed;opacity: 0;}
@@ -510,6 +512,9 @@ input:focus,select:focus, button:focus {outline: none !important;}
 .email{min-height: 45px;margin-bottom: 5px;background:rgba(0,0,0,0);border: 0.5px solid rgba(255,255,255,0.2);border-style:dashed;}
 .message{min-height: 300px;margin-bottom: 5px;background:rgba(0,0,0,0);border: 0.5px solid rgba(255,255,255,0.2);border-style:dashed;}
 .btn-submit{color: #000 !important;width: 100px !important;right:0px !important;position: absolute;bottom: -10%;}
+.objet{min-height: 45px;margin-bottom: 5px;background:rgba(0,0,0,0);border: 0.5px solid rgba(255,255,255,0.2);border-style:dashed;}
 
 input::placeholder{padding-left: 20px;}
 textarea::placeholder{padding-left: 20px;color: #fff;}
+
+

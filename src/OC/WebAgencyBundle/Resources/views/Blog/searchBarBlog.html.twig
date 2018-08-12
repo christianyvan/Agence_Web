@@ -1,0 +1,15 @@
+<form method="get" action="{{ path('oc_web_agency_search') }}" class="searchbar"><!--searchbar-->
+
+    <input minlength="3" type="search" name="q" placeholder="Rechercher">
+    <span class="custom-dropdown custom-dropdown--white">
+								<select name="c" class="custom-dropdown__select custom-dropdown__select--white">
+										<option value="%">Les catégories</option>
+										<option value="Marketing">Marketing</option>
+										<option value="Developpement">Développement</option>
+										<option value="Design">Design</option>
+										<option value="Web%general">Web général</option>
+								</select>
+							</span>
+    <button name="submit">Valider</button>
+
+</form>

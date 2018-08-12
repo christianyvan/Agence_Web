@@ -22,7 +22,8 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Welp\MailchimpBundle\WelpMailchimpBundle()
 		);
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -34,12 +34,15 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
 	 *
 	 * @return array
 	 */
-	public function findLikeWord($word)
+	public function findLikeWord($word, $category)
 	{
 		$query = $this->createQueryBuilder('q')
+            ->leftJoin('q.category', 'c')
 			->where('q.title LIKE :word')
 			->orWhere('q.content LIKE :word')
+            ->andWhere('c.name LIKE :category')
 			->setParameter( 'word', "%$word%")
+            ->setParameter( 'category', "$category")
 			->orderBy('q.date')
 			->setMaxResults(5)
 			->getQuery()

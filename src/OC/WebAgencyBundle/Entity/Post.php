@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
+
 /**
  * Post
  *
@@ -47,10 +48,9 @@ class Post
      */
     private $content;
 
-	/**
-	 * @var string
-	 * @ORM\Column(name="category", type="string", length=255)
-	 */
+    /**
+     * @ORM\ManyToOne(targetEntity="OC\WebAgencyBundle\Entity\Category", cascade={"persist", "remove"})
+     */
     private $category;
 
     /**
@@ -93,6 +93,8 @@ class Post
 	 * Assert\Type(type="OCWebAgency\Entity\Comment")
 	 * @Assert\Valid()
 	 */
+
+
 	private $comments;
 
 	/**
@@ -343,11 +345,10 @@ class Post
      *
      * @return Post
      */
-    public function setCategory($category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
 
-        return $this;
     }
 
     /**

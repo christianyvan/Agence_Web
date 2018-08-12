@@ -169,6 +169,11 @@ class ContactController extends Controller
 
 	public function createContactAction(Request $request)
 	{
+        // On obtient toutes les pages pour le menu
+        $em = $this->getDoctrine()->getManager();
+        $pagesMenu = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->findAll();
 
 		$contact = new Contact();
 
@@ -177,7 +182,7 @@ class ContactController extends Controller
 
 		if  ($request->isMethod('POST'))
 		{
-			// on hydrate l'entité contacton avec les donnée transmise via la méthode POST
+            // on hydrate l'entité contacton avec les donnée transmise via la méthode POST
 			// $contacton contient maintenant les données du formulaire
 			$form->handleRequest($request);
 			if ($form->isSubmitted() && $form->isValid())
@@ -188,12 +193,15 @@ class ContactController extends Controller
 			}
 
 			// Redirection vers la page de description de la commande
-			return $this->redirectToRoute('oc_web_agency_sendmail',array(
-				'id' => $contact->getId()
-			));
+            $request->getSession()->getFlashBag()->add('message-contact', 'Merci pour votre message, nous vous répondrons assez vite !');
+            return $this->render('OCWebAgencyBundle:Contacts:contacts.html.twig', array(
+                'form' => $form->createView(),
+                'pagesMenu' => $pagesMenu,
+            ));
 		}
 		return $this->render('OCWebAgencyBundle:Contacts:contacts.html.twig', array(
 			'form' => $form->createView(),
+            'pagesMenu' => $pagesMenu,
 		));
 	}
 

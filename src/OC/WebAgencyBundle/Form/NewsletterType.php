@@ -12,22 +12,35 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 
-class ContactType extends AbstractType
+class NewsletterType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$builder->add('lastName', TextType::class)
-			->add('firstName', TextType::class)
-			->add('email', TextType::class)
-			->add('object', TextType::class)
-			->add('message', TextareaType::class)
-			//->add('date',DateType::class)
-			//->add('response',TextareaType::class,array('label'=>'','attr' => array(
-			//					'class' => 'ckeditor')))
-			//->add('save', SubmitType::class, array('label'=> 'Envoyer'))
+		$builder
+            ->add('lastName', TextType::class, array(
+                'attr' => array(
+                    'placeholder' => 'Nom',
+                    'class' => 'imputf'
+                ))
+            )
+			->add('firstName', TextType::class, array(
+			    'attr' => array(
+			        'placeholder' => 'Prénom',
+                    'class' => 'imputf'
+                ))
+
+            )
+			->add('email', TextType::class, array(
+			    'attr' => array(
+			        'placeholder' => 'Email',
+                    'class' => 'imputf'
+                ))
+
+            )
+			->add('save', SubmitType::class, array('label'=> 'Envoyer'))
 		;
     }
     /**

@@ -1,18 +1,51 @@
 {% extends '::baseFrontEnd.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style-spe-ref.css') }}">
+    <style>
+        .content{
+
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
     <div class="loader"></div>
-    <div role="main" class="main-content" id="main">
-        <div class="logo">
-            <h1>REFERENCES</h1>
-            <span><h5>agence web &nbsp; </h5><div class="rd r"></div><div class="rd b"></div><div class="rd v"></div></span>
+    <div id="section" role="main" >
+        {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+    <div id="section1_1">
+        <div class="section1-content main-content3">
+            <div class="section1-content1" >
+
+            </div>
+            <div class="section1-content2">
+                <div class="title-page"><h1>Les références</h1></div>
+                <div style="margin-top: 150px;margin-left: 50px;">
+                    <div class="row">
+                        {% for item in listItems %}
+                            <div class="col-md-12">
+                                <h2>{{ item.title }}</h2>
+                            </div>
+                            <div class="col-md-12">
+                                {% if item.imageName is not null %}
+
+                                    <img style="max-width:30%;margin-right: 15px;float: left;" src="/Agence_Web/web{{ vich_uploader_asset(item, 'imageFile') }}" alt="{{item.title}}"/>
+
+                                {% endif %}
+                                <span style="padding-right: 10px;">{{ item.content }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-        <canvas id="noise" class="noise"></canvas>
+    </div>
+    <canvas id="noise" class="noise"></canvas>
     </div>
 
-    {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
+    <script type="text/javascript" src="{{ asset('js/noise.js') }}"></script>
+
+
 
 {% endblock %}

@@ -7,11 +7,14 @@
  */
 
 namespace OC\WebAgencyBundle\Controller;
+use OC\WebAgencyBundle\Form\NewsletterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use OC\WebAgencyBundle\Form\CommentType;
 use OC\WebAgencyBundle\Entity\Comment;
 use OC\WebAgencyBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
+use OC\WebAgencyBundle\Entity\Contact;
+use OC\WebAgencyBundle\Form\ContactType;
 
 /**
  * Class BlogController
@@ -38,13 +41,15 @@ class BlogController extends Controller
             $request->query->getInt('page', 1),
             4
         );
-        
-		//return $this->render('OCWebAgencyBundle:Blog:blogFrontEnd.html.twig',array(
+
+        //dump($posts);
+        //exit;
         return $this->render('OCWebAgencyBundle:Blog:index.html.twig',array(
 			'posts' => $posts,
             'pagesMenu' => $pagesMenu,
             // Ajout Abdel
             'page' => $request->query->getInt('page', 1)
+
 
 		));
 	}

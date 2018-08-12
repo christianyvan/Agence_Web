@@ -13,6 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use OC\WebAgencyBundle\Repository\CategoryRepository;
 
 class PostType extends AbstractType
 {
@@ -24,7 +26,15 @@ class PostType extends AbstractType
         $builder->add('title',TextType::class)
 				->add('name',TextType::class)
 				->add('content',TextareaType::class)
-				->add('category',TextType::class)
+                // Abdel : charger la liste des catégories
+                ->add('category', EntityType::class, array(
+                'class'         => 'OCWebAgencyBundle:Category',
+                'choice_label'  => 'name',
+                'multiple'      => false,
+                'query_builder' => function(CategoryRepository $repository) {
+                    return $repository->getLikeQueryBuilder();
+                }
+                ))
 				->add('email',EmailType::class)
 				//->add('image',FileType::class, array('data_class' => null,'label' => 'Image(JPG)'))
                 ->add('imageFile', VichImageType::class, ['required' => false, 'label' => 'Image'])

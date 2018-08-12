@@ -1,66 +1,63 @@
-{% extends '::base.html.twig' %}
+{% extends '::baseFrontEnd.html.twig' %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+
+    <style>
+        .form-control {
+
+            background-color: #000000;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-style:dashed;
+            color: #FFFFFF;
+
+        }
+        .message-avert
+        {
+            margin-top:190px;
+            margin-left: -650px;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-    {% include '@OCWebAgency/Navigation/frontEnd.html.twig' %}
-    <div class="container">
+    <div class="loader"></div>
 
+    <div class="main-content darkplus" id="main">
+        {% block nav %}{{ render(controller('OCWebAgencyBundle:Page:menuFront')) }}{% endblock %}
 
-                <div class="col-sm-4">
-
-                      <h1>Formulaire de contact</h1>
-
-
-
-                    {{ form_start(form) }}
-                    <div class="form-group">
-                        {{ form_label(form.lastName) }}
-                        {{ form_widget(form.lastName,{'attr':{'class':'form-control'}}) }}
-                        {{ form_errors(form.lastName) }}
-
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form.firstName) }}
-                        {{ form_widget(form.firstName,{'attr':{'class':'form-control'}}) }}
-                        {{ form_errors(form.firstName) }}
-
-                    </div>
-
-                    <div class="form-group">
-                        {{ form_label(form.email) }}
-                        {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
-                        {{ form_errors(form.email) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form.object) }}
-                        {{ form_widget(form.object,{'attr':{'class':'form-control'}}) }}
-                        {{ form_errors(form.object) }}
-
-                    </div>
-
-                    <div class="form-group">
-                        {{ form_label(form.message) }}
-                        {{ form_widget(form.message,{'attr':{'class':'form-control'}}) }}
-                        {{ form_errors(form.message) }}
-                    </div>
-
-                    <div class="form-group">
-
-                        <input class="btn btn-info" type="submit" value="save">
-
-
-                    </div>
-
-                        {{ form_end(form) }}
-
-
-                </div>
+        <div>
+            <div class="title-page"><h1>Nous contacter</h1></div>
+            <div class="newsletter nub4"><a href="{{ path('oc_web_agency_newsletter') }}"><h2>s'inscrire à la newsletter</h2></a></div>
+            <div class="devis nub3"><!--devis--><a href=""><h2>demander votre devis ici</h2></a></div>
+            <div class="message-avert">
+                {# On affiche tous les messages flash #}
+                {% for message in app.session.flashbag.get('message-contact') %}
+                    <h4>{{ message }}</h4>
+                {% endfor %}
             </div>
+        </div>
 
+        {{ form_start(form, {'attr': {'class': 'form-contact'}}) }}
 
-    <br>
+        <div class="names">
+            {{ form_widget(form.lastName,{'attr':{'class':'nom', 'placeholder': 'Nom'}}) }}
+            {{ form_errors(form.lastName) }}
+            {{ form_widget(form.firstName,{'attr':{'class':'prenom', 'placeholder': 'Prénom'}}) }}
+            {{ form_errors(form.firstName) }}
+
+        </div>
+
+        {{ form_widget(form.email,{'attr':{'class':'email', 'placeholder': 'Email'}}) }}
+        {{ form_errors(form.email) }}
+
+        {{ form_widget(form.object,{'attr':{'class':'objet', 'placeholder': 'Sujet'}}) }}
+        {{ form_errors(form.object) }}
+
+        {{ form_widget(form.message,{'attr':{'class':'message', 'placeholder': 'Message'}}) }}
+        {{ form_errors(form.message) }}
+
+            <button type="submit" name="submit" class="btn-submit">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
 
 
 {% endblock %}

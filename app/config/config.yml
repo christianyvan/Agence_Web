@@ -145,3 +145,26 @@ knp_paginator:
     template:
         pagination: pagination/bootstrap4_pagination.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+welp_mailchimp:
+    api_key: fd8e42c4b8c664d4be7922c271d7ffeb-us19
+    list_provider: 'welp_mailchimp.list_provider'
+    lists:
+        listId1:
+            # provider used in full synchronization
+            subscriber_provider: 'wagency.provider1'
+            # webhook secret to secure webhook between MailChimp & your app
+            webhook_secret: '@webagency2018'
+            # The webhook url to be registered to the MailChimp list
+            webhook_url: 'http://agenceweb.yassir-montet.pxgp.fr/app_dev.php/mailchimp/webhook/endpoint'
+            # optional merge tags you want to synchronize
+            merge_fields:
+                -
+                    tag: FNAME
+                    name: First Name
+                    type: text
+                    public: true
+                -
+                    tag: LNAME
+                    name: Last Name
+                    type: text
+                    public: true
